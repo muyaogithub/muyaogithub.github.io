@@ -62,6 +62,104 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2022-05-08T15:45:23.000Z"><a href="/2022/05/08/字符串的基础应用/">2022-05-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/05/08/字符串的基础应用/">字符串的基础应用</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>英语加油站</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// empty: 空的</span></span><br><span class="line"><span class="comment">// size: 大小</span></span><br><span class="line"><span class="comment">// length: 长度</span></span><br></pre></td></tr></table></figure>
+
+<p>代码演示</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入:&quot;</span>;</span><br><span class="line">	getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	<span class="keyword">if</span> (str.empty()) &#123;	<span class="comment">//	判断字符串内容是否为控，空 ture, 非空 false		empty:空</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请重新输入：&quot;</span>;</span><br><span class="line">		getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入的是：&quot;</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;求字符串的长度&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;字符串的长度为：&quot;</span> &lt;&lt; str.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;字符串的长度为：&quot;</span> &lt;&lt; str.length() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt;  <span class="string">&quot;字符串的比较 &gt; &lt; &gt;= &lt;= ==&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">string</span> myGirl = <span class="string">&quot;慕瑶&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> yourGirl;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我的女朋友是&quot;</span> &lt;&lt; myGirl &lt;&lt; <span class="string">&quot;,你的是？&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; yourGirl;</span><br><span class="line">	<span class="keyword">if</span> (yourGirl == myGirl) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我们喜欢的都是&quot;</span> &lt;&lt; yourGirl &lt;&lt; <span class="string">&quot;,决斗吧!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;祝福你!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt;  <span class="string">&quot;字符串的拼接&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">&quot;武当派&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> s2 = <span class="string">&quot;张三丰&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> s3;</span><br><span class="line">	s3 = s1 + s2;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;s3=s1+s2=&quot;</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	s3 += <span class="string">&quot;会太极&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;s3+=&#x27;会太极&#x27;=&quot;</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2022-05-05T13:18:59.000Z"><a href="/2022/05/05/缓冲区/">2022-05-05</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/05/05/缓冲区/">缓冲区</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="comment">//std::cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 a: &quot;</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123; <span class="comment">//检查输入时是否发生了错误 fail 失败</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行 但是已经输入的数据还在输入缓冲区</span></span><br><span class="line">		<span class="built_in">cin</span>.sync(); <span class="comment">//清空输入缓冲区</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 b: &quot;</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; b;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行</span></span><br><span class="line">		<span class="built_in">cin</span>.sync(); <span class="comment">//清空输入缓冲区</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 c: &quot;</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;b=&quot;</span> &lt;&lt; b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;c=&quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2022-04-28T15:48:09.000Z"><a href="/2022/04/28/c-浮点型取值/">2022-04-28</a></time>
       
       
@@ -362,6 +460,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2022/05/08/字符串的基础应用/">字符串的基础应用</a>
+      </li>
+    
+      <li>
+        <a href="/2022/05/05/缓冲区/">缓冲区</a>
+      </li>
+    
+      <li>
         <a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a>
       </li>
     
@@ -371,10 +477,6 @@
     
       <li>
         <a href="/2021/12/08/使用Typora编写博客笔记/"></a>
-      </li>
-    
-      <li>
-        <a href="/2021/12/06/hello-world/">Hello World</a>
       </li>
     
   </ul>
