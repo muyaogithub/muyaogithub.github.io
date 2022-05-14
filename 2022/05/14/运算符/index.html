@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;” | 慕瑶的Hexo</title>
+  <meta name="author" content="MuYao" />
+
+  
+  <meta name="description" content="位运算与:&amp;amp;0&amp;amp;0 = 0
+0&amp;amp;1 = 0
+1&amp;amp;0 = 0
+1&amp;amp;1 = 1
+代码演示：
+123456789101112#include&amp;lt;iostream&amp;gt;using namespace std;int main()&amp;#123;    unsigne" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;”" />
+  <meta property="og:site_name" content="慕瑶的Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="慕瑶的Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">慕瑶的Hexo</a></h1>
+  <h2><a href="/">慕瑶的hexo</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2022-05-14T14:12:00.000Z"><a href="/2022/05/14/运算符/">2022-05-14</a></time>
+      
+      
+  
+    <h1 class="title">运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;”</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h3 id="位运算与-amp"><a href="#位运算与-amp" class="headerlink" title="位运算与:&amp;"></a>位运算与:&amp;</h3><p>0&amp;0 = 0</p>
+<p>0&amp;1 = 0</p>
+<p>1&amp;0 = 0</p>
+<p>1&amp;1 = 1</p>
+<p>代码演示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算与:&amp;</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算且：&quot;</span> &lt;&lt; (ch1 &amp; ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0001 1100	= 28</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算或"><a href="#位运算或" class="headerlink" title="位运算或:|"></a>位运算或:|</h3><p>0|0 = 0</p>
+<p>0|1 = 1</p>
+<p>1|0 = 1</p>
+<p>1|1 = 1</p>
+<p>代码演示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算或:|</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算或：&quot;</span> &lt;&lt; (ch1 | ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0111 1101 = 125</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算非"><a href="#位运算非" class="headerlink" title="位运算非:~"></a>位运算非:~</h3><p>~0 = 1</p>
+<p>~1 = 0</p>
+<p>代码演示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch3 = ~<span class="number">61</span>;	<span class="comment">// 61: 0011 1101</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算非：&quot;</span> &lt;&lt; (<span class="keyword">int</span>)(ch3) &lt;&lt; <span class="built_in">endl</span>;		<span class="comment">// 1100 0010 = 194</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算异或"><a href="#位运算异或" class="headerlink" title="位运算异或:^"></a>位运算异或:^</h3><p>0^0 = 0</p>
+<p>0^1 = 1</p>
+<p>1^0 = 1</p>
+<p>1^1 = 0</p>
+<p>(相同为0，不同为1)</p>
+<p>代码演示:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算异或:^</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算异或：&quot;</span> &lt;&lt; (ch1 ^ ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0110 0001 = 97</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算左移-lt-lt"><a href="#位运算左移-lt-lt" class="headerlink" title="位运算左移:&lt;&lt;"></a>位运算左移:&lt;&lt;</h3><p>右边的位用 0 来填充, 移动超出左边边界的位则直接抛弃。 </p>
+<p>向左移动 n 个位置，就等同于乘以 2 的 n 次，只适用于: int/short/long/char 等定点数类型(float/double 浮点数类型不能使用)</p>
+<p>代买演示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算左移:&lt;&lt;</span></span><br><span class="line">    <span class="comment">// 左移两位</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算左移：&quot;</span> &lt;&lt; (ch1 &lt;&lt; <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 1111 0100 = 244</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="位运算右移-gt-gt"><a href="#位运算右移-gt-gt" class="headerlink" title="位运算右移:&gt;&gt;"></a>位运算右移:&gt;&gt;</h3><p>如果右操作数是无符号类型，则左边多出来的位用 0 来填充。 </p>
+<p>如果右操作数是有符号类型，则左边多出来的位用 符号位(最高位) 来填充。</p>
+<p> 向右移动 n 个位置，就等同于除以 2 的 n 次方 只适用于: int/short/long/char 等定点数类型(float/double 浮点数类型不能使用)</p>
+<p>代码演示：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算右移:&lt;&lt;</span></span><br><span class="line">    <span class="comment">// 右移两位</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算左移：&quot;</span> &lt;&lt; (ch1 &gt;&gt; <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0000 1111 = 14</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="综合练习："><a href="#综合练习：" class="headerlink" title="综合练习："></a>综合练习：</h3><p>把一个整数数最低的四位数变为0110</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> ch4 = <span class="number">125</span>;		</span><br><span class="line">	<span class="comment">// 第一步：后四位变为:0000 </span></span><br><span class="line">	ch4 = ch4 &amp; (~<span class="number">15</span>);	<span class="comment">//	15:1111 ~15: 1111 0000</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第一步：后四位为0000：&quot;</span> &lt;&lt; (<span class="keyword">int</span>)ch4 &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 112: 0111 0000</span></span><br><span class="line">	<span class="comment">// 第二步: 后四位为：0110</span></span><br><span class="line">	ch4 = ch4 | <span class="number">6</span>;		<span class="comment">// 0110: 6</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第二步: 后四位为0110:&quot;</span> &lt;&lt; (<span class="keyword">int</span>)ch4 &lt;&lt; <span class="built_in">endl</span>;		<span class="comment">// 118:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2022/05/14/运算符/">运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;”</a>
+      </li>
+    
+      <li>
+        <a href="/2022/05/08/字符串的基础应用/">字符串的基础应用</a>
+      </li>
+    
+      <li>
+        <a href="/2022/05/05/缓冲区/">缓冲区</a>
+      </li>
+    
+      <li>
+        <a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a>
+      </li>
+    
+      <li>
+        <a href="/2022/04/25/easyx学习/">easyx学习</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2022 MuYao
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
