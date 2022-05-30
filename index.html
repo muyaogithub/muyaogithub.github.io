@@ -62,6 +62,58 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2022-05-30T15:02:19.000Z"><a href="/2022/05/30/字符串位置的转换/">2022-05-30</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/05/30/字符串位置的转换/">字符串位置的转换</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>题目：</p>
+<p>输入一句话，然后把这个字符串以单词为单位，逆转输出。（腾讯笔试题） </p>
+<p>比如将“Alice call Jack”转换为“Jack call Alice”，</p>
+<p>思路一：</p>
+<p>首先输入字符串：123 45 678</p>
+<p>第一步单词的内部单词的逆转：321 54 876</p>
+<p>最后一步整体的逆转： 678 45 123</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入一个句英文：&quot;</span>;</span><br><span class="line">	getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (str[i]) &#123;</span><br><span class="line">		<span class="comment">// 去掉多余的空格</span></span><br><span class="line">		<span class="keyword">while</span> (str[i] == <span class="string">&#x27; &#x27;</span>)i++;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 计算每个单词的长度（j 为单词的末尾）</span></span><br><span class="line">		j = i;</span><br><span class="line">		<span class="keyword">while</span> (str[j] != <span class="string">&#x27; &#x27;</span> &amp;&amp; str[j]) j++;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">// 向单词的末尾（j）,单词的开头（i）互相调换</span></span><br><span class="line">		<span class="comment">// 为了方便重新生成两个新的变量s,e代替</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = i, e = j - <span class="number">1</span>; s &lt; e; s++, e--) &#123;</span><br><span class="line">			<span class="keyword">char</span> temp = str[s];</span><br><span class="line">			str[s] = str[e];</span><br><span class="line">			str[e] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		i = j;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (j = <span class="number">0</span>, i--; j &lt; i; j++, i--) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp = str[i];</span><br><span class="line">		str[i] = str[j];</span><br><span class="line">		str[j] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;转换后：&quot;</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>思路二：</p>
+<p>首先输入字符串：123 45 678</p>
+<p>第一步逆转字符串： 876 54 321</p>
+<p>最后一步逆转字符串内部单词： 678 45 123</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入一个句英文：&quot;</span>;</span><br><span class="line">	getline(<span class="built_in">cin</span>, str);</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// j取字符串的末尾</span></span><br><span class="line">	<span class="keyword">while</span> (str[j]) j++;</span><br><span class="line">	<span class="comment">// 两者调换，实现整个字符串的逆转，完成第一步</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>, j--; i &lt; j; i++, j--) &#123;</span><br><span class="line">		<span class="keyword">char</span> temp = str[i];</span><br><span class="line">		str[i] = str[j];</span><br><span class="line">		str[j] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// 单词内部逆转，实现最后一步</span></span><br><span class="line">	i = <span class="number">0</span>;<span class="comment">// 重头开始</span></span><br><span class="line">	<span class="keyword">while</span> (str[i]) &#123;</span><br><span class="line">		<span class="comment">// 去掉多余的空格</span></span><br><span class="line">		<span class="keyword">while</span> (str[i] == <span class="string">&#x27; &#x27;</span>)i++;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 计算每个单词的长度（j 为单词的末尾）</span></span><br><span class="line">		j = i;</span><br><span class="line">		<span class="keyword">while</span> (str[j] != <span class="string">&#x27; &#x27;</span> &amp;&amp; str[j]) j++;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// 向单词的末尾（j）,单词的开头（i）互相调换</span></span><br><span class="line">		<span class="comment">// 为了方便重新生成两个新的变量s,e代替</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> s = i, e = j - <span class="number">1</span>; s &lt; e; s++, e--) &#123;</span><br><span class="line">			<span class="keyword">char</span> temp = str[s];</span><br><span class="line">			str[s] = str[e];</span><br><span class="line">			str[e] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">		i = j;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;转换后：&quot;</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2022-05-14T14:12:00.000Z"><a href="/2022/05/14/运算符/">2022-05-14</a></time>
       
       
@@ -546,6 +598,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2022/05/30/字符串位置的转换/">字符串位置的转换</a>
+      </li>
+    
+      <li>
         <a href="/2022/05/14/运算符/">运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;”</a>
       </li>
     
@@ -559,10 +615,6 @@
     
       <li>
         <a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a>
-      </li>
-    
-      <li>
-        <a href="/2022/04/25/easyx学习/">easyx学习</a>
       </li>
     
   </ul>
