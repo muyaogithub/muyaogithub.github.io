@@ -62,6 +62,91 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2022-06-07T14:29:12.000Z"><a href="/2022/06/07/inline函数/">2022-06-07</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/06/07/inline函数/">inline函数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>英语加油站</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// function: 函数</span></span><br><span class="line"><span class="comment">// return: 返回</span></span><br><span class="line"><span class="comment">// void: 空，没有参数、返回类型</span></span><br><span class="line"><span class="comment">// inline: 内联函数关键词（函数栈空间会创建在main栈空间上，提高效率，但是使main函数变得臃肿）</span></span><br></pre></td></tr></table></figure>
+
+<p>代码演示</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iosream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>, b=<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;add(a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上面代码等于以下代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iosream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>, b=<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;(a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2022-06-06T14:56:38.000Z"><a href="/2022/06/06/输入不回显之getch函数/">2022-06-06</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;conio.h&gt;</span>		<span class="comment">// getch函数</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inpwd</span><span class="params">(<span class="keyword">char</span> pwd[])</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp;</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">		temp = getch();		<span class="comment">// 不回显输入 vs环境使用 _getch()</span></span><br><span class="line">		<span class="keyword">if</span> (temp == <span class="string">&#x27;\r&#x27;</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		pwd[len++] = temp;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;*&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	pwd[len] = <span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> username;</span><br><span class="line">	<span class="keyword">char</span> pwd[<span class="number">32</span>];</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入账户：&quot;</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; username;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入密码：&quot;</span>;</span><br><span class="line">	inpwd(pwd);</span><br><span class="line">	<span class="keyword">if</span> (username == <span class="string">&quot;admin&quot;</span> &amp;&amp; !<span class="built_in">strcmp</span>(pwd, <span class="string">&quot;admin123&quot;</span>))</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;登录成功！&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;登录失败！&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt; <span class="string">&quot;username = &quot;</span> &lt;&lt; username &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;userpwd = &quot;</span> &lt;&lt; pwd &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2022-05-30T15:02:19.000Z"><a href="/2022/05/30/字符串位置的转换/">2022-05-30</a></time>
       
       
@@ -598,6 +683,14 @@
   <ul class="entry">
     
       <li>
+        <a href="/2022/06/07/inline函数/">inline函数</a>
+      </li>
+    
+      <li>
+        <a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a>
+      </li>
+    
+      <li>
         <a href="/2022/05/30/字符串位置的转换/">字符串位置的转换</a>
       </li>
     
@@ -607,14 +700,6 @@
     
       <li>
         <a href="/2022/05/08/字符串的基础应用/">字符串的基础应用</a>
-      </li>
-    
-      <li>
-        <a href="/2022/05/05/缓冲区/">缓冲区</a>
-      </li>
-    
-      <li>
-        <a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a>
       </li>
     
   </ul>
