@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>类 | 慕瑶的Hexo</title>
+  <meta name="author" content="MuYao" />
+
+  
+  <meta name="description" content="Ikun.h
+12345678910111213141516171819202122232425262728293031#ifndef _IKUN_H_#define _IKUN_H_#include&amp;lt;string&amp;gt;class Ikun &amp;#123;	public :	Ikun();		" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="类" />
+  <meta property="og:site_name" content="慕瑶的Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="慕瑶的Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">慕瑶的Hexo</a></h1>
+  <h2><a href="/">慕瑶的hexo</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2022-07-28T11:58:49.000Z"><a href="/2022/07/28/类/">2022-07-28</a></time>
+      
+      
+  
+    <h1 class="title">类</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Ikun.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> _IKUN_H_</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> _IKUN_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ikun</span> &#123;</span></span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span> :</span><br><span class="line">	<span class="built_in">Ikun</span>();				<span class="comment">// 默认</span></span><br><span class="line">	<span class="built_in">Ikun</span>(std::string name, <span class="keyword">int</span> age, <span class="keyword">int</span> salary);	<span class="comment">// 定义函数</span></span><br><span class="line">	<span class="built_in">Ikun</span>(<span class="keyword">const</span> Ikun&amp; p);			<span class="comment">// 拷贝函数</span></span><br><span class="line">	Ikun&amp; <span class="keyword">operator</span> = (<span class="keyword">const</span> Ikun&amp; p);		<span class="comment">// 赋值函数</span></span><br><span class="line">	~<span class="built_in">Ikun</span>();			<span class="comment">// 析构函数 </span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setName</span><span class="params">(std::string name)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">setSalary</span><span class="params">(<span class="keyword">int</span> salary)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">showIkun</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">	<span class="keyword">char</span>* name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">int</span> salary;</span><br><span class="line">	<span class="keyword">char</span>* s;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// !_IKUN_H_</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>Ikun.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Ikun.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认构造函数</span></span><br><span class="line">Ikun::<span class="built_in">Ikun</span>() &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;创建默认构造函数 Ikun()：&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">64</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(name, <span class="string">&quot;Ikun&quot;</span>);</span><br><span class="line">	age = <span class="number">25</span>;</span><br><span class="line">	salary = <span class="number">1000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 自定义构造函数</span></span><br><span class="line">Ikun::<span class="built_in">Ikun</span>(string name, <span class="keyword">int</span> age, <span class="keyword">int</span> salary) &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;创建自定义构函数 Ikun(string name, int age, int salary)：&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">this</span>-&gt;name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">64</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(<span class="keyword">this</span>-&gt;name, name.<span class="built_in">c_str</span>());</span><br><span class="line">	<span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">	<span class="keyword">this</span>-&gt;salary = salary;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 拷贝构造函数</span></span><br><span class="line">Ikun::<span class="built_in">Ikun</span>(<span class="keyword">const</span> Ikun&amp; p) &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;创建拷贝构造函数 Ikun(const Ikun&amp; p)：&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">this</span>-&gt;name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">64</span>];</span><br><span class="line">	<span class="comment">// this-&gt;name = p.name;		// (原始默认拷贝函数)</span></span><br><span class="line">	<span class="built_in">strcpy</span>(<span class="keyword">this</span>-&gt;name, p.name);</span><br><span class="line">	<span class="keyword">this</span>-&gt;age = p.age;</span><br><span class="line">	<span class="keyword">this</span>-&gt;salary = p.salary;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 赋值构造函数</span></span><br><span class="line">Ikun&amp; Ikun::<span class="keyword">operator</span>=(<span class="keyword">const</span> Ikun&amp; p) &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;创建赋值构造函数 Ikun&amp; operator=(const Ikun&amp; p)：&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	<span class="comment">// this-&gt;name = p.name;	// (原始默认赋值函数）</span></span><br><span class="line">	<span class="built_in">strcpy</span>(<span class="keyword">this</span>-&gt;name, p.name);</span><br><span class="line">	<span class="keyword">this</span>-&gt;age = p.age;</span><br><span class="line">	<span class="keyword">this</span>-&gt;salary = p.salary;</span><br><span class="line">	<span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 析构函数</span></span><br><span class="line">Ikun::~<span class="built_in">Ikun</span>() &#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;触发析构函数：&quot;</span> &lt;&lt; <span class="keyword">this</span> &lt;&lt; endl;</span><br><span class="line">	<span class="keyword">delete</span>[] <span class="keyword">this</span>-&gt;name;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Ikun::setName</span><span class="params">(string name)</span> </span>&#123;</span><br><span class="line">	<span class="built_in">strcpy</span>(<span class="keyword">this</span>-&gt;name, name.<span class="built_in">c_str</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Ikun::setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;age = age;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Ikun::setSalary</span><span class="params">(<span class="keyword">int</span> salary)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>-&gt;salary = salary;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Ikun::showIkun</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="keyword">this</span> &lt;&lt; <span class="string">&quot;大家好，我是练习两年半的练习生：&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;name;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot; 今年&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;age &lt;&lt; <span class="string">&quot;岁，会唱、跳、rap、篮球，月薪&quot;</span> &lt;&lt; <span class="keyword">this</span>-&gt;salary &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>main .cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Ikun.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;main&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;默认构造函数：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	Ikun a1;</span><br><span class="line">	a1.<span class="built_in">showIkun</span>();</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; endl &lt;&lt; <span class="string">&quot;自定义构造函数：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="function">Ikun <span class="title">a2</span><span class="params">(<span class="string">&quot;小黑子&quot;</span>, <span class="number">20</span>, <span class="number">2000</span>)</span></span>;</span><br><span class="line">	a2.<span class="built_in">showIkun</span>();</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; endl &lt;&lt; <span class="string">&quot;拷贝构造函数(a3(a2) / a3 = a2)：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="function">Ikun <span class="title">a3</span><span class="params">(a2)</span></span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;修改前：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a2:&quot;</span>; a2.<span class="built_in">showIkun</span>();</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a3:&quot;</span>; a3.<span class="built_in">showIkun</span>();</span><br><span class="line">	a3.<span class="built_in">setName</span>(<span class="string">&quot;荔枝&quot;</span>);</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;修改前：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a2:&quot;</span>; a2.<span class="built_in">showIkun</span>();</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a3:&quot;</span>; a3.<span class="built_in">showIkun</span>();</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; endl &lt;&lt; <span class="string">&quot;赋值构造函数（a1 = a3）：&quot;</span> &lt;&lt; endl;</span><br><span class="line">	a1 = a3;</span><br><span class="line">	a1.<span class="built_in">showIkun</span>();</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;static Ikun kun;&quot;</span> &lt;&lt; endl;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*Ikun&amp; ikun = Ikun::getJige();</span></span><br><span class="line"><span class="comment">	cout &lt;&lt; &amp;ikun &lt;&lt; endl;*/</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2022/07/28/类/">类</a>
+      </li>
+    
+      <li>
+        <a href="/2022/07/17/二级指针/">二级指针</a>
+      </li>
+    
+      <li>
+        <a href="/2022/06/07/inline函数/">inline函数</a>
+      </li>
+    
+      <li>
+        <a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a>
+      </li>
+    
+      <li>
+        <a href="/2022/05/30/字符串位置的转换/">字符串位置的转换</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2022 MuYao
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
