@@ -62,6 +62,43 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2024-02-27T00:53:39.000Z"><a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">2024-02-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2022-07-28T11:58:49.000Z"><a href="/2022/07/28/类/">2022-07-28</a></time>
       
       
@@ -516,53 +553,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2022-04-25T13:32:54.000Z"><a href="/2022/04/25/easyx学习/">2022-04-25</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/04/25/easyx学习/">easyx学习</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>(英语加油站)</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//	graph:	  图形</span></span><br><span class="line"><span class="comment">//	init：	 初始化</span></span><br><span class="line"><span class="comment">//	device：	 图画</span></span><br><span class="line"><span class="comment">//	circle:	  圆</span></span><br><span class="line"><span class="comment">//	line:	  线条</span></span><br><span class="line"><span class="comment">//	close:    关闭</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>代码演示</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;graphics.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 初始化窗口：600X300（init：初始化，graph:图形）</span></span><br><span class="line">    initgraph(<span class="number">600</span>,<span class="number">400</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置背景颜色</span></span><br><span class="line">    setbkcolor(RGB(<span class="number">59</span>, <span class="number">122</span>, <span class="number">128</span>));</span><br><span class="line">    <span class="comment">// 清理图画（device： 图画)</span></span><br><span class="line">    cleardevice();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//  设置图形线的颜色</span></span><br><span class="line">    setlinecolor(LIGHTRED);</span><br><span class="line">    <span class="comment">//  设置图形线的样式（solid：实线，10：宽度为10）</span></span><br><span class="line">    setlinestyle(PS_SOLID, <span class="number">10</span>);</span><br><span class="line">    <span class="comment">// 画圆(circle:圆)</span></span><br><span class="line">    circle(<span class="number">300</span>, <span class="number">200</span>, <span class="number">150</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//  设置字体颜色</span></span><br><span class="line">    settextcolor(YELLOW);</span><br><span class="line">    <span class="comment">//  设置字体样式(高度， 宽度（0为自适应），字体样式)</span></span><br><span class="line">    settextstyle(<span class="number">80</span>, <span class="number">0</span>, <span class="string">L&quot;微软雅黑&quot;</span>);  <span class="comment">// L是一个宏定义，作用：自动把字符串转换成为特定的编码</span></span><br><span class="line">    outtextxy(<span class="number">180</span>, <span class="number">150</span>, <span class="string">L&quot;高清无码&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 画线条</span></span><br><span class="line">    line(<span class="number">410</span>, <span class="number">100</span>, <span class="number">190</span>, <span class="number">300</span>);</span><br><span class="line"></span><br><span class="line">    system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//关闭窗口(close:关闭）</span></span><br><span class="line">    closegraph();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -588,6 +578,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
+      </li>
+    
+      <li>
         <a href="/2022/07/28/类/">类</a>
       </li>
     
@@ -603,10 +597,6 @@
         <a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a>
       </li>
     
-      <li>
-        <a href="/2022/05/30/字符串位置的转换/">字符串位置的转换</a>
-      </li>
-    
   </ul>
 </div>
 
@@ -620,7 +610,7 @@
   <footer id="footer" class="inner"><div class="alignleft">
   <p>
   
-  &copy; 2023 MuYao
+  &copy; 2024 MuYao
   
   All rights reserved.</p>
   <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
