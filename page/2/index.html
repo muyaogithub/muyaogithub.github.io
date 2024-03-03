@@ -62,6 +62,57 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2022-04-28T15:48:09.000Z"><a href="/2022/04/28/c-浮点型取值/">2022-04-28</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>英语加油站</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// precision: 精度</span></span><br><span class="line"><span class="comment">// flags: 标记		</span></span><br><span class="line"><span class="comment">// fixed: 定点</span></span><br></pre></td></tr></table></figure>
+
+<p>代码</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> num1 = <span class="number">1.23456789</span>;</span><br><span class="line">	<span class="keyword">float</span> num2 = <span class="number">12.3456789</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;double num1: &quot;</span> &lt;&lt; num1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;double num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.precision(<span class="number">4</span>);	<span class="comment">// precision: 精度</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;precision num1: &quot;</span> &lt;&lt; num1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.flags(<span class="built_in">cout</span>.fixed);		<span class="comment">// 顶点取值</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;flags fixed num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.unsetf(<span class="built_in">cout</span>.fixed);	<span class="comment">// 取消顶点</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;unsetf fixed num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2022-04-25T13:32:54.000Z"><a href="/2022/04/25/easyx学习/">2022-04-25</a></time>
       
       
@@ -315,6 +366,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/03/03/C-容器/">C++容器</a>
+      </li>
+    
+      <li>
         <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
       </li>
     
@@ -328,10 +383,6 @@
     
       <li>
         <a href="/2022/06/07/inline函数/">inline函数</a>
-      </li>
-    
-      <li>
-        <a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a>
       </li>
     
   </ul>

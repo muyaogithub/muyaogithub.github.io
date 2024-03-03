@@ -62,6 +62,118 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2024-03-03T12:35:07.000Z"><a href="/2024/03/03/C-容器/">2024-03-03</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/03/C-容器/">C++容器</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器用法所有容器通用</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>begin();</td>
+<td>指向容器第一个的迭代器</td>
+</tr>
+<tr>
+<td>end();</td>
+<td>指向容器末尾的迭代器</td>
+</tr>
+<tr>
+<td>erase();</td>
+<td>删除一个或部分元素</td>
+</tr>
+<tr>
+<td>insert();</td>
+<td>添加元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator i = v1.<span class="built_in">begin</span>(); i != v1.<span class="built_in">end</span>(); i++)</span><br><span class="line"><span class="comment">//vector&lt;int&gt;::iterator 为迭代器变量类型 </span></span><br><span class="line">		cout &lt;&lt; *i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 效果等同于一下</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v1.<span class="built_in">size</span>(); i++)	</span><br><span class="line">		cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">v1.<span class="built_in">insert</span>(v1.<span class="built_in">begin</span>() + <span class="number">1</span>, <span class="number">0</span>);	<span class="comment">// 在第二个元素前插入一个0元素</span></span><br><span class="line">v1.<span class="built_in">erase</span>(v1.<span class="built_in">begin</span>() + <span class="number">1</span>);		<span class="comment">// 删除第二个元素</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="对比图"><a href="#对比图" class="headerlink" title="对比图"></a>对比图</h2><table>
+<thead>
+<tr>
+<th>容器</th>
+<th>初始化</th>
+<th>size(); 返回容器大小</th>
+<th>[i];  i&lt;size()</th>
+<th>empty(); 判空</th>
+<th>push_back(element);末尾追加元素</th>
+<th>pop_back();末尾移除元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vector</td>
+<td>vector<type> 变量名；vector<type> 变量名(容量); vector<type> 变量名(容量,初始值); vector<type> 变量名(同类型的变量名);</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2024-02-27T00:53:39.000Z"><a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">2024-02-27</a></time>
       
       
@@ -502,57 +614,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2022-04-28T15:48:09.000Z"><a href="/2022/04/28/c-浮点型取值/">2022-04-28</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/04/28/c-浮点型取值/">c++浮点型取值</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>英语加油站</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// precision: 精度</span></span><br><span class="line"><span class="comment">// flags: 标记		</span></span><br><span class="line"><span class="comment">// fixed: 定点</span></span><br></pre></td></tr></table></figure>
-
-<p>代码</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> num1 = <span class="number">1.23456789</span>;</span><br><span class="line">	<span class="keyword">float</span> num2 = <span class="number">12.3456789</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;double num1: &quot;</span> &lt;&lt; num1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;double num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.precision(<span class="number">4</span>);	<span class="comment">// precision: 精度</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;precision num1: &quot;</span> &lt;&lt; num1 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.flags(<span class="built_in">cout</span>.fixed);		<span class="comment">// 顶点取值</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;flags fixed num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span>.unsetf(<span class="built_in">cout</span>.fixed);	<span class="comment">// 取消顶点</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;unsetf fixed num2: &quot;</span> &lt;&lt; num2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -578,6 +639,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/03/03/C-容器/">C++容器</a>
+      </li>
+    
+      <li>
         <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
       </li>
     
@@ -591,10 +656,6 @@
     
       <li>
         <a href="/2022/06/07/inline函数/">inline函数</a>
-      </li>
-    
-      <li>
-        <a href="/2022/06/06/输入不回显之getch函数/">输入不回显之getch函数</a>
       </li>
     
   </ul>

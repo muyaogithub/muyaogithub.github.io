@@ -3,16 +3,43 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>c/c++在Visual Studio中玩MySQL | 慕瑶的Hexo</title>
+  <title>C++容器 | 慕瑶的Hexo</title>
   <meta name="author" content="MuYao" />
 
+  
+  <meta name="description" content="迭代器迭代器用法所有容器通用
+
+
+
+指令
+注释
+
+
+
+begin();
+指向容器第一个的迭代器
+
+
+end();
+指向容器末尾的迭代器
+
+
+erase();
+删除一个或部分元素
+
+
+insert();
+添加元素
+
+
+1234567891011for (vector&amp;lt;int&amp;gt;::itera" />
   
 
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="c/c++在Visual Studio中玩MySQL" />
+  <meta property="og:title" content="C++容器" />
   <meta property="og:site_name" content="慕瑶的Hexo" />
 
   
@@ -61,17 +88,92 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2024-02-27T00:53:39.000Z"><a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">2024-02-27</a></time>
+        <time datetime="2024-03-03T12:35:07.000Z"><a href="/2024/03/03/C-容器/">2024-03-03</a></time>
       
       
   
-    <h1 class="title">c/c++在Visual Studio中玩MySQL</h1>
+    <h1 class="title">C++容器</h1>
   
 
     </header>
     <div class="entry">
       
-        
+        <h2 id="迭代器"><a href="#迭代器" class="headerlink" title="迭代器"></a>迭代器</h2><p>迭代器用法所有容器通用</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>begin();</td>
+<td>指向容器第一个的迭代器</td>
+</tr>
+<tr>
+<td>end();</td>
+<td>指向容器末尾的迭代器</td>
+</tr>
+<tr>
+<td>erase();</td>
+<td>删除一个或部分元素</td>
+</tr>
+<tr>
+<td>insert();</td>
+<td>添加元素</td>
+</tr>
+</tbody></table>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator i = v1.<span class="built_in">begin</span>(); i != v1.<span class="built_in">end</span>(); i++)</span><br><span class="line"><span class="comment">//vector&lt;int&gt;::iterator 为迭代器变量类型 </span></span><br><span class="line">		cout &lt;&lt; *i &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 效果等同于一下</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;v1.<span class="built_in">size</span>(); i++)	</span><br><span class="line">		cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">	cout &lt;&lt; endl;</span><br><span class="line">v1.<span class="built_in">insert</span>(v1.<span class="built_in">begin</span>() + <span class="number">1</span>, <span class="number">0</span>);	<span class="comment">// 在第二个元素前插入一个0元素</span></span><br><span class="line">v1.<span class="built_in">erase</span>(v1.<span class="built_in">begin</span>() + <span class="number">1</span>);		<span class="comment">// 删除第二个元素</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="对比图"><a href="#对比图" class="headerlink" title="对比图"></a>对比图</h2><table>
+<thead>
+<tr>
+<th>容器</th>
+<th>初始化</th>
+<th>size(); 返回容器大小</th>
+<th>[i];  i&lt;size()</th>
+<th>empty(); 判空</th>
+<th>push_back(element);末尾追加元素</th>
+<th>pop_back();末尾移除元素</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vector</td>
+<td>vector<type> 变量名；vector<type> 变量名(容量); vector<type> 变量名(容量,初始值); vector<type> 变量名(同类型的变量名);</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
       
     </div>
     
