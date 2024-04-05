@@ -62,6 +62,78 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2024-03-31T08:41:21.000Z"><a href="/2024/03/31/QT笔记/">2024-03-31</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/03/31/QT笔记/">QT笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="信号与槽"><a href="#信号与槽" class="headerlink" title="信号与槽"></a>信号与槽</h1><h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><h6 id="signal"><a href="#signal" class="headerlink" title="signal"></a>signal</h6><p>信号关键词</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">signal:		<span class="comment">// 信号只需定义不需要实现</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PopSignal</span><span class="params">(QString str)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h6 id="slots"><a href="#slots" class="headerlink" title="slots"></a>slots</h6><p>槽方法关键词</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> slots:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">on_signaBtn_chicked</span><span class="params">()</span></span>;	<span class="comment">// 按钮方法，需要实现</span></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PushSignal</span><span class="params">(QSTring str)</span></span>&#123;</span><br><span class="line">    	<span class="built_in">qDebug</span>()&lt;&lt;str&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="emit"><a href="#emit" class="headerlink" title="emit"></a>emit</h6><p>发射信号</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">emit <span class="title">PopSignal</span><span class="params">(<span class="string">&quot;发射信号&quot;</span>)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h6 id="connect"><a href="#connect" class="headerlink" title="connect"></a>connect</h6><p>信号与槽的连接器</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal</span>(QString&amp;)), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal</span>(QString&amp;))); 	</span><br><span class="line"><span class="comment">// connect(发送者, SIGNAL(信号(参数)), 接收者, SLOT(槽方法(参数)))		注意：信号的参数必须大于或等于槽方法的参数 （信号的参数 &gt;= 槽方法的参数）	</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="信号与槽的关系"><a href="#信号与槽的关系" class="headerlink" title="信号与槽的关系"></a>信号与槽的关系</h4><p>假如有以下内容：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">signals:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PopSignal1</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PopSignal2</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">PopSignal3</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span> slots:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PushSignal1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">qDebuge</span>()&lt;&lt;<span class="string">&quot;发射信号一&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PushSignal1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">qDebuge</span>()&lt;&lt;<span class="string">&quot;发射信号一&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">PushSignal1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="built_in">qDebuge</span>()&lt;&lt;<span class="string">&quot;发射信号一&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="一对多"><a href="#一对多" class="headerlink" title="一对多"></a>一对多</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal2</span>()));</span><br><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal3</span>()));</span><br></pre></td></tr></table></figure>
+
+<h6 id="多对一"><a href="#多对一" class="headerlink" title="多对一"></a>多对一</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal2</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal3</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="信号传递信号"><a href="#信号传递信号" class="headerlink" title="信号传递信号"></a>信号传递信号</h6><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">connect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>,  <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal2</span>()));</span><br></pre></td></tr></table></figure>
+
+<h6 id="断开连接-disconnect"><a href="#断开连接-disconnect" class="headerlink" title="断开连接 disconnect"></a>断开连接 disconnect</h6><p>方式一</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 断开一个信号和一个槽连接</span></span><br><span class="line"><span class="built_in">disconnect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));	<span class="comment">// connect(this, SIGNAL(PopSignal1()), this, SLOT(PushSignal1())) 已经无效</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 断开一个信号的所有槽连接-- 000</span></span><br><span class="line"><span class="built_in">disconnect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 断开某个对象所有的信号与某个对象所有槽的连接</span></span><br><span class="line"><span class="built_in">disconnect</span>(<span class="keyword">this</span>, <span class="number">0</span>, <span class="keyword">this</span>, <span class="number">0</span>);	<span class="comment">// 断开this对象所有的信号与this所有的槽的连接</span></span><br></pre></td></tr></table></figure>
+
+<p>方式二</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QMetaObject::Connection red = <span class="built_in">disconnect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br><span class="line"><span class="built_in">disconnect</span>(red);</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2024-03-03T12:35:07.000Z"><a href="/2024/03/03/C-容器/">2024-03-03</a></time>
       
       
@@ -575,45 +647,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2022-05-05T13:18:59.000Z"><a href="/2022/05/05/缓冲区/">2022-05-05</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/05/05/缓冲区/">缓冲区</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">	<span class="comment">//std::cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 a: &quot;</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123; <span class="comment">//检查输入时是否发生了错误 fail 失败</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行 但是已经输入的数据还在输入缓冲区</span></span><br><span class="line">		<span class="built_in">cin</span>.sync(); <span class="comment">//清空输入缓冲区</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 b: &quot;</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; b;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行</span></span><br><span class="line">		<span class="built_in">cin</span>.sync(); <span class="comment">//清空输入缓冲区</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入 c: &quot;</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">cin</span>.fail()) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入错误，应该输入一个整数&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		<span class="built_in">cin</span>.clear(); <span class="comment">//清除错误标记，使得后续输入可以正常进行</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;a=&quot;</span> &lt;&lt; a &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;b=&quot;</span> &lt;&lt; b &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;c=&quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -639,6 +672,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/03/31/QT笔记/">QT笔记</a>
+      </li>
+    
+      <li>
         <a href="/2024/03/03/C-容器/">C++容器</a>
       </li>
     
@@ -652,10 +689,6 @@
     
       <li>
         <a href="/2022/07/17/二级指针/">二级指针</a>
-      </li>
-    
-      <li>
-        <a href="/2022/06/07/inline函数/">inline函数</a>
       </li>
     
   </ul>
