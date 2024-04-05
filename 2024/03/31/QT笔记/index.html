@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   
-  <title>QT笔记 | 慕瑶的Hexo</title>
+  <title>慕瑶的Hexo</title>
   <meta name="author" content="MuYao" />
 
   
@@ -18,7 +18,7 @@ slots槽方法关键词
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <meta property="og:title" content="QT笔记" />
+  
   <meta property="og:site_name" content="慕瑶的Hexo" />
 
   
@@ -71,13 +71,13 @@ slots槽方法关键词
       
       
   
-    <h1 class="title">QT笔记</h1>
+    <h1 class="title"></h1>
   
 
     </header>
     <div class="entry">
       
-        <h1 id="信号与槽"><a href="#信号与槽" class="headerlink" title="信号与槽"></a>信号与槽</h1><h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><h6 id="signal"><a href="#signal" class="headerlink" title="signal"></a>signal</h6><p>信号关键词</p>
+        <h2 id="信号与槽"><a href="#信号与槽" class="headerlink" title="信号与槽"></a>信号与槽</h2><h4 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h4><h6 id="signal"><a href="#signal" class="headerlink" title="signal"></a>signal</h6><p>信号关键词</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">signal:		<span class="comment">// 信号只需定义不需要实现</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PopSignal</span><span class="params">(QString str)</span></span>;</span><br></pre></td></tr></table></figure>
 
 <h6 id="slots"><a href="#slots" class="headerlink" title="slots"></a>slots</h6><p>槽方法关键词</p>
@@ -109,6 +109,9 @@ slots槽方法关键词
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">QMetaObject::Connection red = <span class="built_in">disconnect</span>(<span class="keyword">this</span>, <span class="built_in">SIGNAL</span>(<span class="built_in">PopSignal1</span>()), <span class="keyword">this</span>, <span class="built_in">SLOT</span>(<span class="built_in">PushSignal1</span>()));</span><br><span class="line"><span class="built_in">disconnect</span>(red);</span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="窗体风格"><a href="#窗体风格" class="headerlink" title="窗体风格"></a>窗体风格</h2><p>QWidget 变量名（*父窗口, 窗体风格参数）;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QWidget w1(&amp;w, Qt::FramelessWindowHint | Qt::Dialog);   // Qt::FramelessWindowHint 无边框风格 Qt::Dialog 对话框风格</span><br><span class="line"></span><br><span class="line">w1.setWindowTitle(&quot;widget 无边框窗体&quot;);		// 窗口标题</span><br><span class="line"></span><br><span class="line">w1.setWindowState(Qt::FramelessWindowHint);	// 设置窗口状态为最大化</span><br><span class="line"></span><br><span class="line">w1.setStyleSheet(&quot;background-color: blue;&quot;);	// 窗口背景颜色</span><br><span class="line">w1.show();</span><br></pre></td></tr></table></figure>
 
 
 
@@ -148,7 +151,7 @@ slots槽方法关键词
   <ul class="entry">
     
       <li>
-        <a href="/2024/03/31/QT笔记/">QT笔记</a>
+        <a href="/2024/03/31/QT笔记/"></a>
       </li>
     
       <li>
