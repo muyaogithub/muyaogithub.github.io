@@ -1,0 +1,568 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>Linux笔记 | 慕瑶的Hexo</title>
+  <meta name="author" content="MuYao" />
+
+  
+  <meta name="description" content="shell 命令man 与 helpman 帮助命令
+12man xx ## 执行 man XX，即可列出 XX 命令的所有参数和用法man 1 xx ## man [手册编号] xx
+
+help 
+1ls --help
+
+
+
+通配符* － 用于匹配文件名中任意长度的字符串；
+ ? － 只匹配一个字" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="Linux笔记" />
+  <meta property="og:site_name" content="慕瑶的Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="慕瑶的Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">慕瑶的Hexo</a></h1>
+  <h2><a href="/">慕瑶的hexo</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2024-04-10T11:44:33.000Z"><a href="/2024/04/10/Linux笔记/">2024-04-10</a></time>
+      
+      
+  
+    <h1 class="title">Linux笔记</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="shell-命令"><a href="#shell-命令" class="headerlink" title="shell 命令"></a>shell 命令</h2><h6 id="man-与-help"><a href="#man-与-help" class="headerlink" title="man 与 help"></a>man 与 help</h6><p>man 帮助命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man xx ## 执行 man XX，即可列出 XX 命令的所有参数和用法</span><br><span class="line">man 1 xx ## man [手册编号] xx</span><br></pre></td></tr></table></figure>
+
+<p>help </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --help</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h6><p>* － 用于匹配文件名中任意长度的字符串；</p>
+<p> ? － 只匹配一个字符； </p>
+<p>[] － 用于匹配所有出现在方括号内的字符。可以使用短线“-”来指定字符集范围。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ mkdir demo</span><br><span class="line">user@ubuntu:~$ cd demo</span><br><span class="line">user@ubuntu:~/demo$ touch text1 text2 text3 text4 text11</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">text1  text11  text2  text3  text4  text11</span><br><span class="line">user@ubuntu:~/demo$ ls *text1</span><br><span class="line">text1</span><br><span class="line">user@ubuntu:~/demo$ ls text*</span><br><span class="line">text1  text11  text2  text3  text4</span><br><span class="line">user@ubuntu:~/demo$ ls text?</span><br><span class="line">text1  text2  text3  text4</span><br><span class="line">user@ubuntu:~/demo$ ls text[1-2]</span><br><span class="line">text1  text2</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="su-与-sudo"><a href="#su-与-sudo" class="headerlink" title="su 与 sudo"></a>su 与 sudo</h6><p>su  用户切换命令</p>
+<p>sudo 特权命令</p>
+<p>注意： Ubuntu 默认情况下，系统没有合法的 root 权限，不能直接使用su 命令提升到root 权限，而必须要用 sudo 来获得 root 权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ su</span><br><span class="line">密码：</span><br><span class="line">su: 认证失败</span><br><span class="line">user@ubuntu:~/demo$ sudo su</span><br><span class="line">root@ubuntu:/home/user/demo#</span><br><span class="line">root@ubuntu:/home/user/demo# su user</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="pwd-和-ls"><a href="#pwd-和-ls" class="headerlink" title="pwd 和 ls"></a>pwd 和 ls</h6><p>pwd 显示当前路径</p>
+<p>ls 显示当前目录的内容</p>
+<p>cd 进入某个目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/user# pwd</span><br><span class="line">/home/user</span><br><span class="line">root@ubuntu:/home/user# ls</span><br><span class="line">demo</span><br><span class="line">root@ubuntu:/home/user# cd demo</span><br><span class="line">root@ubuntu:/home/user/demo# ls</span><br><span class="line">text1  text11  text2  text3  text4  touch</span><br><span class="line">root@ubuntu:/home/user/demo# cd ..</span><br><span class="line">root@ubuntu:/home/user# cd /</span><br><span class="line">root@ubuntu:/# ls</span><br><span class="line">bin   dev  home        lib    lost+found  mnt  proc  run   srv  tmp  var</span><br><span class="line">boot  etc  initrd.img  lib64  media       opt  root  sbin  sys  usr  vmlinuz</span><br><span class="line">root@ubuntu:/# cd root</span><br><span class="line">root@ubuntu:~#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h6><p>mkdir 创建目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ mkdir test</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  text1  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mkdir test1 test2 test3</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text11  text2  text3  text4  touch</span><br></pre></td></tr></table></figure>
+
+<h6 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h6><p>mv 移动命令</p>
+<p>mv [参数选项] 源文件 目标文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mv text1 test</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mv text11 test/text11</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ cd test</span><br><span class="line">user@ubuntu:~/demo/test$ ls</span><br><span class="line">text1  text11</span><br><span class="line">user@ubuntu:~/demo/test$ cd ..</span><br><span class="line">user@ubuntu:~/demo$ mv test/text1 ./</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ cd test</span><br><span class="line">user@ubuntu:~/demo/test$ ls</span><br><span class="line">text11 </span><br></pre></td></tr></table></figure>
+
+<h6 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h6><p>cp 复制命令</p>
+<p>cp [参数选项] 源文件 目标文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>如果目标文件存在，则替换</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>如果目标文件存在，则提示是否替换</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>如果目标文件存在，则不进行覆盖，而是在目标文件加~</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将子目录及其中的文件一起复制到另一个子目录下</td>
+</tr>
+</tbody></table>
+<h6 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h6><p>rm 删除命令</p>
+<p>rm [参数选项] 文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>不给予任何提示</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>删除时进行提示</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制性删除文件或相应目录</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将子目录及其中的文件一并删除</td>
+</tr>
+</tbody></table>
+<h6 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h6><p>ln 文件连接</p>
+<p>ln[参数选项] 源文件 目标文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>创建硬链接</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>软连接（如果源文件删除了，软连接无法访问）</td>
+</tr>
+</tbody></table>
+<h6 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h6><p>r 读</p>
+<p>w 写</p>
+<p>x 执行</p>
+<table>
+<thead>
+<tr>
+<th>文件属性</th>
+<th>用</th>
+<th></th>
+<th>户</th>
+<th>同</th>
+<th></th>
+<th>组</th>
+<th>其</th>
+<th>他</th>
+<th>组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>l</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+</tr>
+<tr>
+<td>d</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:/$ ls -l</span><br><span class="line">总用量 76</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 11:18 bin</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:18 boot</span><br><span class="line">drwxr-xr-x  16 root root  4220  4月  9 16:43 dev</span><br><span class="line">drwxr-xr-x  91 root root  4096  4月  9 16:43 etc</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:20 home</span><br><span class="line">lrwxrwxrwx   1 root root    32  4月  2 11:11 initrd.img -&gt; boot/initrd.img-4.2.0-27-generic</span><br><span class="line">drwxr-xr-x  21 root root  4096  4月  2 18:17 lib</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 18:17 lib64</span><br><span class="line">drwx------   2 root root 16384  4月  2 11:11 lost+found</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:11 media</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月 11  2014 mnt</span><br><span class="line">drwxr-xr-x   2 root root  4096  2月 18  2016 opt</span><br><span class="line">dr-xr-xr-x 161 root root     0  4月  9 16:43 proc</span><br><span class="line">drwx------   2 root root  4096  4月  2 18:38 root</span><br><span class="line">drwxr-xr-x  18 root root   640  4月  9 17:31 run</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 11:20 sbin</span><br><span class="line">drwxr-xr-x   2 root root  4096  2月 18  2016 srv</span><br><span class="line">dr-xr-xr-x  13 root root     0  4月  9 17:00 sys</span><br><span class="line">drwxrwxrwt   2 root root  4096  4月  9 18:47 tmp</span><br><span class="line">drwxr-xr-x  10 root root  4096  4月  2 11:11 usr</span><br><span class="line">drwxr-xr-x  12 root root  4096  4月  2 11:18 var</span><br><span class="line">lrwxrwxrwx   1 root root    29  4月  2 11:11 vmlinuz -&gt; boot/vmlinuz-4.2.0-27-generic</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>改变用户与属组</p>
+<p>chown [用户]:[属组]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls -l</span><br><span class="line">总用量 20</span><br><span class="line">lrwxrwxrwx 1 user user   10  4月  9 18:41 lns_text1 -&gt; test/text1</span><br><span class="line">-rw-rw-r-- 1 user user   57  4月  9 18:39 ln_text1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 18:47 test</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:50 test1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test2</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text1</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text2</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text4</span><br><span class="line">user@ubuntu:~/demo$ sudo su</span><br><span class="line">root@ubuntu:/home/user/demo# chown root:root text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">总用量 20</span><br><span class="line">lrwxrwxrwx 1 user user   10  4月  9 18:41 lns_text1 -&gt; test/text1</span><br><span class="line">-rw-rw-r-- 1 user user   57  4月  9 18:39 ln_text1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 18:47 test</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:50 test1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test2</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text1</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text2</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text3</span><br><span class="line">-rw-rw-r-- 1 root root    0  4月  2 17:47 text4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>chgrp 切换文件属组</p>
+<p>chgrp [属组] [文件]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls -l</span><br><span class="line">-rw-rw-r-- 1 root root    0  4月  2 17:47 text4</span><br><span class="line">root@ubuntu:/home/user/demo# chgrp user text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">-rw-rw-r-- 1 root user    0  4月  2 17:47 text4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>chmod 用户组加减权限</p>
+<p>chmod [用户组 +/- 权限] [文件]</p>
+<table>
+<thead>
+<tr>
+<th>用户</th>
+<th>属组</th>
+<th>其他人</th>
+<th>所有人</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>g</td>
+<td>o</td>
+<td>a</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/user/demo# chmod a+x,g+w text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">-rwxrwxr-x 1 root user    0  4月  2 17:47 text4</span><br></pre></td></tr></table></figure>
+
+<h6 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h6><ol>
+<li><p>阅读文件前部(head)或尾部(tail)</p>
+<p>head/tail [参数] 文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>显示文件的前10行或后10行</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示文件的前10行或后10行</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>cat</p>
+<p>cat  一次性查看全部文本文件的内容，后跟文件名作为参数.也可以带上 -n 显示每行的行号。</p>
+</li>
+<li><p>more</p>
+<p>more 命令用来分页查看文本文件。空格翻页；回车向下滚动一行;Q 键退出</p>
+</li>
+<li><p>less</p>
+<p>更人性化的文本阅读工具。</p>
+</li>
+</ol>
+<h6 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h6><p>插入模式</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>在光标后面插入</td>
+</tr>
+<tr>
+<td>i</td>
+<td>在光标所在的位置插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标所在的位置的下一行插入</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>进入命令模式</td>
+</tr>
+<tr>
+<td>：</td>
+<td>进入行命令模式</td>
+</tr>
+</tbody></table>
+<p>命令模式</p>
+<p>执行的顺序：w &gt; q &gt; !</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:w</td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>另存为filename</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出</td>
+</tr>
+</tbody></table>
+<p>搜索和替换</p>
+<p>前提进入命令模式</p>
+<table>
+<thead>
+<tr>
+<th>搜索</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(/string) [向下搜索字符串string]</td>
+</tr>
+<tr>
+<td>(?string) [向上搜索字符串string]</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>替换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[range]s/pattern/string/[c、e、g、i]</td>
+</tr>
+<tr>
+<td>这条命令将 pattern 所代表的字符串替换成 string。开头的 range 用于指定替换作用的 范围，如“1,10” 表示从第 1 行到第 10 行，“1,$”表示从第 1 行到最后一行，也就是全文。 全文也可以用 “%” 表示。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c</td>
+<td>每次替换前询问</td>
+</tr>
+<tr>
+<td>e</td>
+<td>不显示错误信息</td>
+</tr>
+<tr>
+<td>g</td>
+<td>替换一行中的所有匹配项</td>
+</tr>
+<tr>
+<td>i</td>
+<td>不区分大小写</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:1,10s/pattern/string</span><br><span class="line">:1,$s/pattern/string</span><br><span class="line">:%s/pattern/string</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2024/03/31/QT笔记/"></a>
+      </li>
+    
+      <li>
+        <a href="/2024/03/03/C-容器/">C++容器</a>
+      </li>
+    
+      <li>
+        <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
+      </li>
+    
+      <li>
+        <a href="/2022/07/28/类/">类</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2024 MuYao
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>

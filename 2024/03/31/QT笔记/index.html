@@ -113,8 +113,130 @@ slots槽方法关键词
 <h2 id="窗体风格"><a href="#窗体风格" class="headerlink" title="窗体风格"></a>窗体风格</h2><p>QWidget 变量名（*父窗口, 窗体风格参数）;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QWidget w1(&amp;w, Qt::FramelessWindowHint | Qt::Dialog);   // Qt::FramelessWindowHint 无边框风格 Qt::Dialog 对话框风格</span><br><span class="line"></span><br><span class="line">w1.setWindowTitle(&quot;widget 无边框窗体&quot;);		// 窗口标题</span><br><span class="line"></span><br><span class="line">w1.setWindowState(Qt::FramelessWindowHint);	// 设置窗口状态为最大化</span><br><span class="line"></span><br><span class="line">w1.setStyleSheet(&quot;background-color: blue;&quot;);	// 窗口背景颜色</span><br><span class="line">w1.show();</span><br></pre></td></tr></table></figure>
 
+<p>setWindowModality(Qt::WindowModality windowModality)<br>指定了模态窗口的行为。(如：先用窗口3，关闭了窗口3才能使用其他)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qt::NonModal</td>
+<td>该窗口不是模态的，也不会阻塞其他窗口的输入。</td>
+</tr>
+<tr>
+<td>Qt::WindowModal</td>
+<td>该窗口是单一窗口层次结构的模态，并阻止输入到其父窗口、所有祖父窗口以及其父和祖父窗口的所有兄弟窗口。</td>
+</tr>
+<tr>
+<td>Qt::ApplicationModal</td>
+<td>该窗口对应用程序来说是模态的，并阻止所有窗口的输入。</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">WidgetText w1;</span><br><span class="line">   w1.setWindowTitle(&quot;窗口1&quot;);</span><br><span class="line">   w1.show();</span><br><span class="line"></span><br><span class="line">   WidgetText w2;</span><br><span class="line">   w2.setWindowTitle(&quot;窗口2&quot;);</span><br><span class="line">   w2.show();</span><br><span class="line"></span><br><span class="line">   WidgetText w3;</span><br><span class="line">   w3.setWindowTitle(&quot;窗口3&quot;);</span><br><span class="line">   w3.setWindowModality(Qt::ApplicationModal);</span><br><span class="line">   w3.show();</span><br></pre></td></tr></table></figure>
 
-
+<h2 id="QLineText-掩码字符"><a href="#QLineText-掩码字符" class="headerlink" title="QLineText 掩码字符"></a>QLineText 掩码字符</h2><table>
+<thead>
+<tr>
+<th>字符（必须输入）</th>
+<th>字符（可留空）</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>a</td>
+<td>只能输入 A-Z,a-z</td>
+</tr>
+<tr>
+<td>N</td>
+<td>n</td>
+<td>只能输入 A-Z,a-z,0-9</td>
+</tr>
+<tr>
+<td>X</td>
+<td>x</td>
+<td>可以输入任意字符</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0</td>
+<td>只能输入 0-9</td>
+</tr>
+<tr>
+<td>D</td>
+<td>d</td>
+<td>只能输入 1-9</td>
+</tr>
+<tr>
+<td></td>
+<td>#</td>
+<td>只能输入+，-，0-9</td>
+</tr>
+<tr>
+<td>H</td>
+<td>h</td>
+<td>只能输入十六进制字符(0-9,a-f,A-F)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>b</td>
+<td>只能输入二进制字符(0,1)</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>&gt;</td>
+<td>后面的字母字符自动转换为大写</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&lt;</td>
+<td>后面的字母字符自动转换为小写</td>
+</tr>
+<tr>
+<td>!</td>
+<td>!</td>
+<td>停止字母字符的大小写转换</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td>讲该表中的特殊字符正常显示作用分隔符</td>
+</tr>
+</tbody></table>
+<h2 id="QLayout"><a href="#QLayout" class="headerlink" title="QLayout"></a>QLayout</h2><table>
+<thead>
+<tr>
+<th>关键词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QHboxLayout</td>
+<td>水平布局管理器</td>
+</tr>
+<tr>
+<td>QVboxLayout</td>
+<td>垂直布局管理器</td>
+</tr>
+<tr>
+<td>QFormLayout</td>
+<td>表单布局管理器</td>
+</tr>
+<tr>
+<td>QGridLayout</td>
+<td>网络布局管理器</td>
+</tr>
+<tr>
+<td>QStackedLayout</td>
+<td>堆叠布局管理器</td>
+</tr>
+<tr>
+<td>QBoxLayout</td>
+<td>抽象类</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -151,6 +273,10 @@ slots槽方法关键词
   <ul class="entry">
     
       <li>
+        <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
+      </li>
+    
+      <li>
         <a href="/2024/03/31/QT笔记/"></a>
       </li>
     
@@ -164,10 +290,6 @@ slots槽方法关键词
     
       <li>
         <a href="/2022/07/28/类/">类</a>
-      </li>
-    
-      <li>
-        <a href="/2022/07/17/二级指针/">二级指针</a>
       </li>
     
   </ul>

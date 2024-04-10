@@ -62,6 +62,435 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2024-04-10T11:44:33.000Z"><a href="/2024/04/10/Linux笔记/">2024-04-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/04/10/Linux笔记/">Linux笔记</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h2 id="shell-命令"><a href="#shell-命令" class="headerlink" title="shell 命令"></a>shell 命令</h2><h6 id="man-与-help"><a href="#man-与-help" class="headerlink" title="man 与 help"></a>man 与 help</h6><p>man 帮助命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man xx ## 执行 man XX，即可列出 XX 命令的所有参数和用法</span><br><span class="line">man 1 xx ## man [手册编号] xx</span><br></pre></td></tr></table></figure>
+
+<p>help </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls --help</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h6><p>* － 用于匹配文件名中任意长度的字符串；</p>
+<p> ? － 只匹配一个字符； </p>
+<p>[] － 用于匹配所有出现在方括号内的字符。可以使用短线“-”来指定字符集范围。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ mkdir demo</span><br><span class="line">user@ubuntu:~$ cd demo</span><br><span class="line">user@ubuntu:~/demo$ touch text1 text2 text3 text4 text11</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">text1  text11  text2  text3  text4  text11</span><br><span class="line">user@ubuntu:~/demo$ ls *text1</span><br><span class="line">text1</span><br><span class="line">user@ubuntu:~/demo$ ls text*</span><br><span class="line">text1  text11  text2  text3  text4</span><br><span class="line">user@ubuntu:~/demo$ ls text?</span><br><span class="line">text1  text2  text3  text4</span><br><span class="line">user@ubuntu:~/demo$ ls text[1-2]</span><br><span class="line">text1  text2</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="su-与-sudo"><a href="#su-与-sudo" class="headerlink" title="su 与 sudo"></a>su 与 sudo</h6><p>su  用户切换命令</p>
+<p>sudo 特权命令</p>
+<p>注意： Ubuntu 默认情况下，系统没有合法的 root 权限，不能直接使用su 命令提升到root 权限，而必须要用 sudo 来获得 root 权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ su</span><br><span class="line">密码：</span><br><span class="line">su: 认证失败</span><br><span class="line">user@ubuntu:~/demo$ sudo su</span><br><span class="line">root@ubuntu:/home/user/demo#</span><br><span class="line">root@ubuntu:/home/user/demo# su user</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="pwd-和-ls"><a href="#pwd-和-ls" class="headerlink" title="pwd 和 ls"></a>pwd 和 ls</h6><p>pwd 显示当前路径</p>
+<p>ls 显示当前目录的内容</p>
+<p>cd 进入某个目录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/user# pwd</span><br><span class="line">/home/user</span><br><span class="line">root@ubuntu:/home/user# ls</span><br><span class="line">demo</span><br><span class="line">root@ubuntu:/home/user# cd demo</span><br><span class="line">root@ubuntu:/home/user/demo# ls</span><br><span class="line">text1  text11  text2  text3  text4  touch</span><br><span class="line">root@ubuntu:/home/user/demo# cd ..</span><br><span class="line">root@ubuntu:/home/user# cd /</span><br><span class="line">root@ubuntu:/# ls</span><br><span class="line">bin   dev  home        lib    lost+found  mnt  proc  run   srv  tmp  var</span><br><span class="line">boot  etc  initrd.img  lib64  media       opt  root  sbin  sys  usr  vmlinuz</span><br><span class="line">root@ubuntu:/# cd root</span><br><span class="line">root@ubuntu:~#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h6><p>mkdir 创建目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ mkdir test</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  text1  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mkdir test1 test2 test3</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text11  text2  text3  text4  touch</span><br></pre></td></tr></table></figure>
+
+<h6 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h6><p>mv 移动命令</p>
+<p>mv [参数选项] 源文件 目标文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mv text1 test</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text11  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ mv text11 test/text11</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ cd test</span><br><span class="line">user@ubuntu:~/demo/test$ ls</span><br><span class="line">text1  text11</span><br><span class="line">user@ubuntu:~/demo/test$ cd ..</span><br><span class="line">user@ubuntu:~/demo$ mv test/text1 ./</span><br><span class="line">user@ubuntu:~/demo$ ls</span><br><span class="line">test  test1  test2  test3  text1  text2  text3  text4  touch</span><br><span class="line">user@ubuntu:~/demo$ cd test</span><br><span class="line">user@ubuntu:~/demo/test$ ls</span><br><span class="line">text11 </span><br></pre></td></tr></table></figure>
+
+<h6 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h6><p>cp 复制命令</p>
+<p>cp [参数选项] 源文件 目标文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>如果目标文件存在，则替换</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>如果目标文件存在，则提示是否替换</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>如果目标文件存在，则不进行覆盖，而是在目标文件加~</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将子目录及其中的文件一起复制到另一个子目录下</td>
+</tr>
+</tbody></table>
+<h6 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h6><p>rm 删除命令</p>
+<p>rm [参数选项] 文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>不给予任何提示</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>删除时进行提示</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制性删除文件或相应目录</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将子目录及其中的文件一并删除</td>
+</tr>
+</tbody></table>
+<h6 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h6><p>ln 文件连接</p>
+<p>ln[参数选项] 源文件 目标文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>创建硬链接</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>软连接（如果源文件删除了，软连接无法访问）</td>
+</tr>
+</tbody></table>
+<h6 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h6><p>r 读</p>
+<p>w 写</p>
+<p>x 执行</p>
+<table>
+<thead>
+<tr>
+<th>文件属性</th>
+<th>用</th>
+<th></th>
+<th>户</th>
+<th>同</th>
+<th></th>
+<th>组</th>
+<th>其</th>
+<th>他</th>
+<th>组</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>l</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+</tr>
+<tr>
+<td>d</td>
+<td>r</td>
+<td>w</td>
+<td>x</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:/$ ls -l</span><br><span class="line">总用量 76</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 11:18 bin</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:18 boot</span><br><span class="line">drwxr-xr-x  16 root root  4220  4月  9 16:43 dev</span><br><span class="line">drwxr-xr-x  91 root root  4096  4月  9 16:43 etc</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:20 home</span><br><span class="line">lrwxrwxrwx   1 root root    32  4月  2 11:11 initrd.img -&gt; boot/initrd.img-4.2.0-27-generic</span><br><span class="line">drwxr-xr-x  21 root root  4096  4月  2 18:17 lib</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 18:17 lib64</span><br><span class="line">drwx------   2 root root 16384  4月  2 11:11 lost+found</span><br><span class="line">drwxr-xr-x   3 root root  4096  4月  2 11:11 media</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月 11  2014 mnt</span><br><span class="line">drwxr-xr-x   2 root root  4096  2月 18  2016 opt</span><br><span class="line">dr-xr-xr-x 161 root root     0  4月  9 16:43 proc</span><br><span class="line">drwx------   2 root root  4096  4月  2 18:38 root</span><br><span class="line">drwxr-xr-x  18 root root   640  4月  9 17:31 run</span><br><span class="line">drwxr-xr-x   2 root root  4096  4月  2 11:20 sbin</span><br><span class="line">drwxr-xr-x   2 root root  4096  2月 18  2016 srv</span><br><span class="line">dr-xr-xr-x  13 root root     0  4月  9 17:00 sys</span><br><span class="line">drwxrwxrwt   2 root root  4096  4月  9 18:47 tmp</span><br><span class="line">drwxr-xr-x  10 root root  4096  4月  2 11:11 usr</span><br><span class="line">drwxr-xr-x  12 root root  4096  4月  2 11:18 var</span><br><span class="line">lrwxrwxrwx   1 root root    29  4月  2 11:11 vmlinuz -&gt; boot/vmlinuz-4.2.0-27-generic</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>改变用户与属组</p>
+<p>chown [用户]:[属组]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls -l</span><br><span class="line">总用量 20</span><br><span class="line">lrwxrwxrwx 1 user user   10  4月  9 18:41 lns_text1 -&gt; test/text1</span><br><span class="line">-rw-rw-r-- 1 user user   57  4月  9 18:39 ln_text1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 18:47 test</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:50 test1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test2</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text1</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text2</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text4</span><br><span class="line">user@ubuntu:~/demo$ sudo su</span><br><span class="line">root@ubuntu:/home/user/demo# chown root:root text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">总用量 20</span><br><span class="line">lrwxrwxrwx 1 user user   10  4月  9 18:41 lns_text1 -&gt; test/text1</span><br><span class="line">-rw-rw-r-- 1 user user   57  4月  9 18:39 ln_text1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 18:47 test</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:50 test1</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test2</span><br><span class="line">drwxrwxr-x 2 user user 4096  4月  9 17:07 test3</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text1</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text2</span><br><span class="line">-rw-rw-r-- 1 user user    0  4月  2 17:47 text3</span><br><span class="line">-rw-rw-r-- 1 root root    0  4月  2 17:47 text4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>chgrp 切换文件属组</p>
+<p>chgrp [属组] [文件]</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~/demo$ ls -l</span><br><span class="line">-rw-rw-r-- 1 root root    0  4月  2 17:47 text4</span><br><span class="line">root@ubuntu:/home/user/demo# chgrp user text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">-rw-rw-r-- 1 root user    0  4月  2 17:47 text4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>chmod 用户组加减权限</p>
+<p>chmod [用户组 +/- 权限] [文件]</p>
+<table>
+<thead>
+<tr>
+<th>用户</th>
+<th>属组</th>
+<th>其他人</th>
+<th>所有人</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>u</td>
+<td>g</td>
+<td>o</td>
+<td>a</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/user/demo# chmod a+x,g+w text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">-rwxrwxr-x 1 root user    0  4月  2 17:47 text4</span><br></pre></td></tr></table></figure>
+
+<h6 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h6><ol>
+<li><p>阅读文件前部(head)或尾部(tail)</p>
+<p>head/tail [参数] 文件</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>不带参数</td>
+<td>显示文件的前10行或后10行</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示文件的前10行或后10行</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>cat</p>
+<p>cat  一次性查看全部文本文件的内容，后跟文件名作为参数.也可以带上 -n 显示每行的行号。</p>
+</li>
+<li><p>more</p>
+<p>more 命令用来分页查看文本文件。空格翻页；回车向下滚动一行;Q 键退出</p>
+</li>
+<li><p>less</p>
+<p>更人性化的文本阅读工具。</p>
+</li>
+</ol>
+<h6 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h6><p>插入模式</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>在光标后面插入</td>
+</tr>
+<tr>
+<td>i</td>
+<td>在光标所在的位置插入</td>
+</tr>
+<tr>
+<td>o</td>
+<td>在光标所在的位置的下一行插入</td>
+</tr>
+<tr>
+<td>ESC</td>
+<td>进入命令模式</td>
+</tr>
+<tr>
+<td>：</td>
+<td>进入行命令模式</td>
+</tr>
+</tbody></table>
+<p>命令模式</p>
+<p>执行的顺序：w &gt; q &gt; !</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>:w</td>
+<td>保存文件</td>
+</tr>
+<tr>
+<td>:w filename</td>
+<td>另存为filename</td>
+</tr>
+<tr>
+<td>:q</td>
+<td>退出</td>
+</tr>
+<tr>
+<td>:q!</td>
+<td>强制退出</td>
+</tr>
+</tbody></table>
+<p>搜索和替换</p>
+<p>前提进入命令模式</p>
+<table>
+<thead>
+<tr>
+<th>搜索</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>(/string) [向下搜索字符串string]</td>
+</tr>
+<tr>
+<td>(?string) [向上搜索字符串string]</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>替换</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[range]s/pattern/string/[c、e、g、i]</td>
+</tr>
+<tr>
+<td>这条命令将 pattern 所代表的字符串替换成 string。开头的 range 用于指定替换作用的 范围，如“1,10” 表示从第 1 行到第 10 行，“1,$”表示从第 1 行到最后一行，也就是全文。 全文也可以用 “%” 表示。</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>标志</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>c</td>
+<td>每次替换前询问</td>
+</tr>
+<tr>
+<td>e</td>
+<td>不显示错误信息</td>
+</tr>
+<tr>
+<td>g</td>
+<td>替换一行中的所有匹配项</td>
+</tr>
+<tr>
+<td>i</td>
+<td>不区分大小写</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">:1,10s/pattern/string</span><br><span class="line">:1,$s/pattern/string</span><br><span class="line">:%s/pattern/string</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2024-03-31T08:41:21.000Z"><a href="/2024/03/31/QT笔记/">2024-03-31</a></time>
       
       
@@ -108,8 +537,130 @@
 <h2 id="窗体风格"><a href="#窗体风格" class="headerlink" title="窗体风格"></a>窗体风格</h2><p>QWidget 变量名（*父窗口, 窗体风格参数）;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">QWidget w1(&amp;w, Qt::FramelessWindowHint | Qt::Dialog);   // Qt::FramelessWindowHint 无边框风格 Qt::Dialog 对话框风格</span><br><span class="line"></span><br><span class="line">w1.setWindowTitle(&quot;widget 无边框窗体&quot;);		// 窗口标题</span><br><span class="line"></span><br><span class="line">w1.setWindowState(Qt::FramelessWindowHint);	// 设置窗口状态为最大化</span><br><span class="line"></span><br><span class="line">w1.setStyleSheet(&quot;background-color: blue;&quot;);	// 窗口背景颜色</span><br><span class="line">w1.show();</span><br></pre></td></tr></table></figure>
 
+<p>setWindowModality(Qt::WindowModality windowModality)<br>指定了模态窗口的行为。(如：先用窗口3，关闭了窗口3才能使用其他)</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qt::NonModal</td>
+<td>该窗口不是模态的，也不会阻塞其他窗口的输入。</td>
+</tr>
+<tr>
+<td>Qt::WindowModal</td>
+<td>该窗口是单一窗口层次结构的模态，并阻止输入到其父窗口、所有祖父窗口以及其父和祖父窗口的所有兄弟窗口。</td>
+</tr>
+<tr>
+<td>Qt::ApplicationModal</td>
+<td>该窗口对应用程序来说是模态的，并阻止所有窗口的输入。</td>
+</tr>
+</tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">WidgetText w1;</span><br><span class="line">   w1.setWindowTitle(&quot;窗口1&quot;);</span><br><span class="line">   w1.show();</span><br><span class="line"></span><br><span class="line">   WidgetText w2;</span><br><span class="line">   w2.setWindowTitle(&quot;窗口2&quot;);</span><br><span class="line">   w2.show();</span><br><span class="line"></span><br><span class="line">   WidgetText w3;</span><br><span class="line">   w3.setWindowTitle(&quot;窗口3&quot;);</span><br><span class="line">   w3.setWindowModality(Qt::ApplicationModal);</span><br><span class="line">   w3.show();</span><br></pre></td></tr></table></figure>
 
-
+<h2 id="QLineText-掩码字符"><a href="#QLineText-掩码字符" class="headerlink" title="QLineText 掩码字符"></a>QLineText 掩码字符</h2><table>
+<thead>
+<tr>
+<th>字符（必须输入）</th>
+<th>字符（可留空）</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>a</td>
+<td>只能输入 A-Z,a-z</td>
+</tr>
+<tr>
+<td>N</td>
+<td>n</td>
+<td>只能输入 A-Z,a-z,0-9</td>
+</tr>
+<tr>
+<td>X</td>
+<td>x</td>
+<td>可以输入任意字符</td>
+</tr>
+<tr>
+<td>9</td>
+<td>0</td>
+<td>只能输入 0-9</td>
+</tr>
+<tr>
+<td>D</td>
+<td>d</td>
+<td>只能输入 1-9</td>
+</tr>
+<tr>
+<td></td>
+<td>#</td>
+<td>只能输入+，-，0-9</td>
+</tr>
+<tr>
+<td>H</td>
+<td>h</td>
+<td>只能输入十六进制字符(0-9,a-f,A-F)</td>
+</tr>
+<tr>
+<td>B</td>
+<td>b</td>
+<td>只能输入二进制字符(0,1)</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>&gt;</td>
+<td>后面的字母字符自动转换为大写</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&lt;</td>
+<td>后面的字母字符自动转换为小写</td>
+</tr>
+<tr>
+<td>!</td>
+<td>!</td>
+<td>停止字母字符的大小写转换</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td>讲该表中的特殊字符正常显示作用分隔符</td>
+</tr>
+</tbody></table>
+<h2 id="QLayout"><a href="#QLayout" class="headerlink" title="QLayout"></a>QLayout</h2><table>
+<thead>
+<tr>
+<th>关键词</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>QHboxLayout</td>
+<td>水平布局管理器</td>
+</tr>
+<tr>
+<td>QVboxLayout</td>
+<td>垂直布局管理器</td>
+</tr>
+<tr>
+<td>QFormLayout</td>
+<td>表单布局管理器</td>
+</tr>
+<tr>
+<td>QGridLayout</td>
+<td>网络布局管理器</td>
+</tr>
+<tr>
+<td>QStackedLayout</td>
+<td>堆叠布局管理器</td>
+</tr>
+<tr>
+<td>QBoxLayout</td>
+<td>抽象类</td>
+</tr>
+</tbody></table>
 
       
     </div>
@@ -591,65 +1142,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2022-05-08T15:45:23.000Z"><a href="/2022/05/08/字符串的基础应用/">2022-05-08</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/05/08/字符串的基础应用/">字符串的基础应用</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <p>英语加油站</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// empty: 空的</span></span><br><span class="line"><span class="comment">// size: 大小</span></span><br><span class="line"><span class="comment">// length: 长度</span></span><br></pre></td></tr></table></figure>
-
-<p>代码演示</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请输入:&quot;</span>;</span><br><span class="line">	getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	<span class="keyword">if</span> (str.empty()) &#123;	<span class="comment">//	判断字符串内容是否为控，空 ture, 非空 false		empty:空</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;请重新输入：&quot;</span>;</span><br><span class="line">		getline(<span class="built_in">cin</span>, str);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;输入的是：&quot;</span> &lt;&lt; str &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;求字符串的长度&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;字符串的长度为：&quot;</span> &lt;&lt; str.size() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;字符串的长度为：&quot;</span> &lt;&lt; str.length() &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt;  <span class="string">&quot;字符串的比较 &gt; &lt; &gt;= &lt;= ==&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">string</span> myGirl = <span class="string">&quot;慕瑶&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> yourGirl;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我的女朋友是&quot;</span> &lt;&lt; myGirl &lt;&lt; <span class="string">&quot;,你的是？&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; yourGirl;</span><br><span class="line">	<span class="keyword">if</span> (yourGirl == myGirl) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;我们喜欢的都是&quot;</span> &lt;&lt; yourGirl &lt;&lt; <span class="string">&quot;,决斗吧!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;祝福你!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span> &lt;&lt;  <span class="string">&quot;字符串的拼接&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">string</span> s1 = <span class="string">&quot;武当派&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> s2 = <span class="string">&quot;张三丰&quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> s3;</span><br><span class="line">	s3 = s1 + s2;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;s3=s1+s2=&quot;</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	s3 += <span class="string">&quot;会太极&quot;</span>;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;s3+=&#x27;会太极&#x27;=&quot;</span> &lt;&lt; s3 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -675,6 +1167,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
+      </li>
+    
+      <li>
         <a href="/2024/03/31/QT笔记/"></a>
       </li>
     
@@ -688,10 +1184,6 @@
     
       <li>
         <a href="/2022/07/28/类/">类</a>
-      </li>
-    
-      <li>
-        <a href="/2022/07/17/二级指针/">二级指针</a>
       </li>
     
   </ul>
