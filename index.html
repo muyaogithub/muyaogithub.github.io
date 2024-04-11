@@ -72,7 +72,7 @@
     </header>
     <div class="entry">
       
-        <h2 id="shell-命令"><a href="#shell-命令" class="headerlink" title="shell 命令"></a>shell 命令</h2><h6 id="man-与-help"><a href="#man-与-help" class="headerlink" title="man 与 help"></a>man 与 help</h6><p>man 帮助命令</p>
+        <h2 id="入门命令"><a href="#入门命令" class="headerlink" title="入门命令"></a>入门命令</h2><h6 id="man-与-help"><a href="#man-与-help" class="headerlink" title="man 与 help"></a>man 与 help</h6><p>man 帮助命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">man xx ## 执行 man XX，即可列出 XX 命令的所有参数和用法</span><br><span class="line">man 1 xx ## man [手册编号] xx</span><br></pre></td></tr></table></figure>
 
 <p>help </p>
@@ -158,6 +158,37 @@
 <td>将子目录及其中的文件一并删除</td>
 </tr>
 </tbody></table>
+<h6 id="find"><a href="#find" class="headerlink" title="find"></a>find</h6><p>find 查找命令</p>
+<p>find [参数选项] 查找的目录  需要查找的内容</p>
+<p>常用参数：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-type</td>
+<td>按文件类型查找，如（块设备B、字符设备C、目录D、普通F、命名管道P、符号链接L等文件)</td>
+</tr>
+<tr>
+<td>-atime n</td>
+<td>按照时间查找, n为天数如 -n 就为n天前</td>
+</tr>
+<tr>
+<td>-maxdepth n</td>
+<td>查到目录的最大深度(n)</td>
+</tr>
+<tr>
+<td>-mindepth n</td>
+<td>从指定的目录深度（n）开始查找</td>
+</tr>
+</tbody></table>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">user@ubuntu:~$ ls -la demo/</span><br><span class="line">总用量 48</span><br><span class="line">drwxrwxr-x 6 user user  4096  4月 11 21:38 .</span><br><span class="line">drwxr-xr-x 4 user user  4096  4月  9 23:42 ..</span><br><span class="line">lrwxrwxrwx 1 user user    10  4月  9 18:41 lns_text1 -&gt; test/text1</span><br><span class="line">-rw-rw-r-- 1 user user    57  4月  9 18:39 ln_text1</span><br><span class="line">-rw-rw-r-- 1 user user   205  4月  9 22:19 readtext</span><br><span class="line">drwxrwxr-x 2 user user  4096  4月 11 21:38 test</span><br><span class="line">drwxrwxr-x 2 user user  4096  4月  9 17:50 test1</span><br><span class="line">drwxrwxr-x 2 user user  4096  4月  9 17:07 test2</span><br><span class="line">drwxrwxr-x 2 user user  4096  4月  9 17:07 test3</span><br><span class="line">-rw-rw-r-- 1 user user  1758  4月  9 23:26 txt</span><br><span class="line">-rw-r--r-- 1 user user 12288  4月  9 23:30 .txt.swp</span><br><span class="line"></span><br><span class="line">root@ubuntu:/home# cd user/</span><br><span class="line">user@ubuntu:~$ find ./ -type l</span><br><span class="line">./demo/lns_text1</span><br><span class="line">user@ubuntu:~$ find ./ -atime -1</span><br><span class="line">./</span><br><span class="line">./.cache</span><br><span class="line">./.bash_history</span><br><span class="line">./.bashrc</span><br><span class="line">./.profile</span><br><span class="line">./demo</span><br><span class="line">./demo/lns_text1</span><br><span class="line">./demo/test2</span><br><span class="line">./demo/test1</span><br><span class="line">./demo/test3</span><br><span class="line">./demo/test</span><br><span class="line">./demo/test/text2</span><br><span class="line">./demo/test/text1</span><br><span class="line">./demo/test/text3</span><br><span class="line">user@ubuntu:~$ find ./ -maxdepth 3 -mindepth 1 -name text1</span><br><span class="line">./demo/test/text1</span><br></pre></td></tr></table></figure>
+
+<p>locate 快速查找</p>
+<p>locate 文件名</p>
 <h6 id="ln"><a href="#ln" class="headerlink" title="ln"></a>ln</h6><p>ln 文件连接</p>
 <p>ln[参数选项] 源文件 目标文件</p>
 <table>
@@ -249,7 +280,7 @@
 </tbody></table>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/user/demo# chmod a+x,g+w text4</span><br><span class="line">root@ubuntu:/home/user/demo# ls -l</span><br><span class="line">-rwxrwxr-x 1 root user    0  4月  2 17:47 text4</span><br></pre></td></tr></table></figure>
 
-<h6 id="查看文件"><a href="#查看文件" class="headerlink" title="查看文件"></a>查看文件</h6><ol>
+<h6 id="查看文件（head-tail、cat、more、less）"><a href="#查看文件（head-tail、cat、more、less）" class="headerlink" title="查看文件（head/tail、cat、more、less）"></a>查看文件（head/tail、cat、more、less）</h6><ol>
 <li><p>阅读文件前部(head)或尾部(tail)</p>
 <p>head/tail [参数] 文件</p>
 <table>
