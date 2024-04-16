@@ -434,78 +434,33 @@ help
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><h6 id="运行-c文件"><a href="#运行-c文件" class="headerlink" title="运行.c文件"></a>运行.c文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c</span><br><span class="line">./a.out</span><br><span class="line"></span><br><span class="line">gcc hello.c -o hello.out</span><br><span class="line">./hello.out</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="samba-服务器"><a href="#samba-服务器" class="headerlink" title="samba 服务器"></a>samba 服务器</h6><h6 id="vs-开发Linux-程序"><a href="#vs-开发Linux-程序" class="headerlink" title="vs 开发Linux 程序"></a>vs 开发Linux 程序</h6><ol>
+<li><p>更改更改地址目录</p>
+<p>vim /etc/network/interfaces</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="meta">#</span><span class="bash"> The primary network interface</span></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static	# static 静态地址 	</span><br><span class="line">address 192.168.1.213 	# 地址 			 ip add 查看</span><br><span class="line">netmask 255.255.255.0 	# 网址掩码			</span><br><span class="line">gateway 192.168.1.1	  	# 网关			 ip route show 查看</span><br></pre></td></tr></table></figure></li>
+<li><p>修改DNS服务器</p>
+<p>vi /etc/resolvconf/resolv.conf.d/base</p>
+<p>注意：windos cmd 命令框 ipconfig -all 查看DNS服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 192.168.1.1</span><br></pre></td></tr></table></figure></li>
+<li><p>重启机器</p>
+<p>reboot</p>
+</li>
+<li><p>检测是否环境</p>
+<p>ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<p>如果通，说明成功，反之</p>
+</li>
+<li><p>VS 调试</p>
+<p>(1). 检查VS环境是否有 “C++ 的 Linux 开发”，如果没有就选择“工具(T)”=&gt; “获取工具和功能(T)…”，确认“使用          C++ 的Linux 开发”勾选点击右下角的修改进行安装</p>
+<p>(2). 打开空项目（适用于Linux），注意：这里可能有的大佬已经安装了Windows开发所有会有两个，所有注          意争辩</p>
+<p>(3). 在第一次编译或调试你的项目时 vs 会自动让你连接远程环境，在调试-&gt;选项-&gt;跨平</p>
+<pre><code>  台-&gt;连接管理器中进行设置，跟ssh远程登录没区别。
+</code></pre>
+</li>
+</ol>
 
       
     </div>
@@ -542,6 +497,10 @@ help
   <ul class="entry">
     
       <li>
+        <a href="/2024/04/12/软件设计师/">软件设计师</a>
+      </li>
+    
+      <li>
         <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
       </li>
     
@@ -555,10 +514,6 @@ help
     
       <li>
         <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
-      </li>
-    
-      <li>
-        <a href="/2022/07/28/类/">类</a>
       </li>
     
   </ul>

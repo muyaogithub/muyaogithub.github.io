@@ -62,6 +62,317 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2024-04-12T12:47:12.000Z"><a href="/2024/04/12/软件设计师/">2024-04-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2024/04/12/软件设计师/">软件设计师</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="第一章-操作系统"><a href="#第一章-操作系统" class="headerlink" title="第一章 操作系统"></a>第一章 操作系统</h1><h2 id="操作系统概念"><a href="#操作系统概念" class="headerlink" title="操作系统概念"></a>操作系统概念</h2><h4 id="操作系统的功能"><a href="#操作系统的功能" class="headerlink" title="操作系统的功能"></a>操作系统的功能</h4><ul>
+<li><p>管理系统的硬件、软件、数据资源</p>
+</li>
+<li><p>管理程序运行</p>
+</li>
+<li><p>人机之间的接口</p>
+</li>
+<li><p>应用软件与硬件之间的接口</p>
+</li>
+<li><p>进程、存储、文件、作业、设备管理</p>
+<p>↓应用程序</p>
+<p>↓语言处理程序</p>
+<p>  操作系统</p>
+<p>↑计算机硬件</p>
+</li>
+</ul>
+<h4 id="操作系统的分类"><a href="#操作系统的分类" class="headerlink" title="操作系统的分类"></a>操作系统的分类</h4><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>批处理操作系统</td>
+<td>单道批：一次一个作业入内存，作业由程序、数据、作业说明书等组成<br />多道批：一次多个作业入内存，特点：多道、宏观上并行，微观上串行</td>
+</tr>
+<tr>
+<td>分时系统</td>
+<td>采用时间片轮转的方式为多个用户提供服务，每个用户感觉独占系统<br />特点：多路性、独立性、交互性和及时性</td>
+</tr>
+<tr>
+<td>实时操作系统</td>
+<td>实时控制系统和实时信息系统<br />交互能力要求不高，可靠性要求高（规定时间内响应并处理）</td>
+</tr>
+<tr>
+<td>网络操作系统</td>
+<td>方便有效共享网络资源。提供服务软件和有关协议的集合<br />主要的网络操作系统由：Unix、Linux、Windows Server</td>
+</tr>
+<tr>
+<td>分布式操作系统</td>
+<td>任意两台计算机可以通过通信交换信息<br />是网络操作系统的更高级形式，具有透明性、可靠性和高性能等特性</td>
+</tr>
+<tr>
+<td>危机操作系统</td>
+<td>Windows: Microsoft开发的图形用户界面、多任务、多线程操作系统<br />Linux: 免费使用和自由传播的类Unix操作系统，多用户、多任务、多线程和多CPU的操作系统</td>
+</tr>
+<tr>
+<td>嵌入式操作系统</td>
+<td>运行再智能芯片环境中<br />特点：微型化、<u>可定制</u>（针对硬件变化配置）、实时性、可靠性、<u>易移植性</u>（HAL和BSP支持）</td>
+</tr>
+</tbody></table>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>进程是程序再一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位，它由程序块、进程控制块（PBC）和数据块三部分组成。</p>
+<h4 id="进程与线程的概念"><a href="#进程与线程的概念" class="headerlink" title="进程与线程的概念"></a>进程与线程的概念</h4><ul>
+<li>进程与程序的区别：进程是程序的一次执行过程，没有程序就没有进程</li>
+<li>程序是一个静态的概念，而进程是一个动态的概念，它由创建而生产，完成任务后因撤销而消亡</li>
+<li>进程是系统进行资源分配和调度的独立单位，而程序不是</li>
+</ul>
+<p>进程的两个基本属性：可拥有资源的独立单位；可独立调度和分配资源的基本单位</p>
+<table>
+<thead>
+<tr>
+<th>拥有资源的独立单位</th>
+<th>独立调度和分配资源的基本单位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线程、程序计数器、寄存器栈</td>
+<td>内存地址空间、代码、数据、文件等</td>
+</tr>
+</tbody></table>
+<h4 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h4><p><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-2-1.jpg" alt="1-2-2-1"></p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运行</td>
+<td>当一个进程在CPU上运行时。（单处理机处于运行状态的进程只有一个）</td>
+</tr>
+<tr>
+<td>就绪</td>
+<td>一个进程获得了出CPU外的一切所需资源，一旦得到处理机即可运行</td>
+</tr>
+<tr>
+<td>阻塞(等待)</td>
+<td>一个进程正在等待某一事件发生(例如请求I/O、等待I/O完成等)而暂时停止运行，此时即使把CPU分配给进程也无法运行，顾称进程处于阻塞状态</td>
+</tr>
+</tbody></table>
+<h4 id="信号量与PV操作"><a href="#信号量与PV操作" class="headerlink" title="信号量与PV操作"></a>信号量与PV操作</h4><p>P 要资源         V 释放资源 </p>
+<p>临界资源： 诸进程间需要互斥方式对其进行共享的资源。</p>
+<p>信号量： 是一种特殊的变量（可以表示资源数量；为负数时还可以表示排队的进程数）</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>互斥模型</td>
+<td>互斥信号量S的初始值一般为非0<br />访问权是一类特殊的互斥资源，同一时刻仅允许一个人用，则信号量初始值为1<br />先P后V</td>
+</tr>
+<tr>
+<td>同步模型</td>
+<td>同步信号量S的初始值一般为0<br />先V后P</td>
+</tr>
+</tbody></table>
+<h4 id="前驱图与PV操作"><a href="#前驱图与PV操作" class="headerlink" title="前驱图与PV操作"></a>前驱图与PV操作</h4><ul>
+<li><p>并发图中某活动有后继就有V操作释放资源，有前驱就有P操作消耗资源</p>
+</li>
+<li><p>实现并发的信号量初始值一般为0、有几个箭头就有几个信号量</p>
+</li>
+</ul>
+<h4 id="死锁问题"><a href="#死锁问题" class="headerlink" title="死锁问题"></a>死锁问题</h4><p>所谓死锁，是指两个以上的进程互相都要求对方已经占有的资源导致无法继续运行下去的现象。</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>死锁处理</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1、互斥</td>
+<td>死锁的预防</td>
+<td>(打破四大条件)</td>
+</tr>
+<tr>
+<td>2、保持和等待</td>
+<td>死锁的避免</td>
+<td></td>
+</tr>
+<tr>
+<td>3、不剥夺</td>
+<td>死锁的检测与接触</td>
+<td></td>
+</tr>
+<tr>
+<td>4、环路等待</td>
+<td>鸵鸟策略（不予理睬）</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>系统不可能发生死锁的最小资源数： (w-1)*m+1 &lt;= n            </p>
+<p>w: 所需要的资源</p>
+<p>m: 进程数<br>n：总资源</p>
+<h4 id="进程资源图"><a href="#进程资源图" class="headerlink" title="进程资源图"></a>进程资源图</h4><table>
+<thead>
+<tr>
+<th>图形</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-1.png" alt="1-2-6-1"></td>
+<td>资源R1已经分配给进程P，1个箭头即分配了1个R1</td>
+</tr>
+<tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-2.png" alt="1-2-6-2"></td>
+<td>进程P申请1个资源R1，一个箭头即申请了1个R1，等待R1分配</td>
+</tr>
+<tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-3.png" alt="1-2-6-3"></td>
+<td>进程P已经分配了1个资源R1，同时还在申请一个资源R1<br /><u>不是先申请后分配</u></td>
+</tr>
+</tbody></table>
+<h2 id="存储管理器"><a href="#存储管理器" class="headerlink" title="存储管理器"></a>存储管理器</h2><h4 id="段页式存储"><a href="#段页式存储" class="headerlink" title="段页式存储"></a>段页式存储</h4><p>高级程序语言使用逻辑地址</p>
+<p>运行状态，内存中使用物理地址</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页式存储：将程序与内存均划分同样的大小块，以页为单位将程序调入内存</td>
+<td>利用率高，碎片小，分配及管理简单</td>
+<td>增加了系统开销；可能产生抖动现象</td>
+</tr>
+<tr>
+<td>段式存储：按用户作业中的自然段来划分逻辑空间，然后调入内存，段的长度可以不一样</td>
+<td>多道程序共享内存，各段程序修改互不影响</td>
+<td>内存利用率低，内存碎片浪费大</td>
+</tr>
+<tr>
+<td>段页式存储：段式与页式的综合体。先分段，再分页。<br />一个程序有若干段，每个段中可以有若干页，每个页的大小相同，但每个段的大小不同</td>
+<td>空间浪费小、存储共享容易、存储保护容易、能动态连接</td>
+<td>由于管理软件的增加，复杂性和开销页随之增加。需要的硬件以及占用的内容页有所增家，使得执行速度大大下降</td>
+</tr>
+</tbody></table>
+<p>考点：</p>
+<ul>
+<li><p>页式存储：</p>
+<p>逻辑地址=页号+页内地址</p>
+<p>物理地址=页帧号+页内地址</p>
+</li>
+<li><p>段式存储</p>
+<p>逻辑段地址:判断偏移量是否合法（短号，偏移量）</p>
+</li>
+<li><p>段页式存储</p>
+<p>根据地址结构计算相关数据</p>
+</li>
+</ul>
+<h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><p>存取时间 = 寻道时间 + 等待时间</p>
+<p>读取磁盘数据的时间应包括以下三部分</p>
+<ul>
+<li>找磁道的时间</li>
+<li>找扇区的时间</li>
+<li>传输时间</li>
+</ul>
+<p>移臂调度算法：先找磁道，再找扇区。</p>
+<p>目标：使用磁盘平均寻道时间最少</p>
+<ul>
+<li><p>先来先服务(FCFS)</p>
+</li>
+<li><p>最短寻道时间优先(SSTF)</p>
+</li>
+<li><p>扫描算法(SCAN)</p>
+</li>
+<li><p>循环扫描(CSCAN)算法</p>
+</li>
+</ul>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><table>
+<thead>
+<tr>
+<th>I/O请求</th>
+<th>层次</th>
+<th>I/O应答</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>↓</td>
+<td>用户进程</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>设备无关程序（os）</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>设备驱动程序</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>中断处理程序</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>硬件</td>
+<td>↑</td>
+</tr>
+</tbody></table>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h4 id="文件相关概念"><a href="#文件相关概念" class="headerlink" title="文件相关概念"></a>文件相关概念</h4><p>文件：具有符号名的、在逻辑上具有完整意义的一组相关信息项的集合</p>
+<p>逻辑结构：有结构的记录式文件、无结构的流式文件</p>
+<p>物理结构：连续结构、链接结构、索引结构、多个物理块的索引表</p>
+<h4 id="树形目录结构"><a href="#树形目录结构" class="headerlink" title="树形目录结构"></a>树形目录结构</h4><p>绝对路径：从盘符开始的路径</p>
+<p>相对路径：是从当前目录开始的路径</p>
+<p>全文件名：绝对路径+文件名</p>
+<h4 id="索引文件结构"><a href="#索引文件结构" class="headerlink" title="索引文件结构"></a>索引文件结构</h4><p>X = n*</p>
+<p>X：地址数<br>n：索引块<br>*： *级索引</p>
+<h4 id="位式图"><a href="#位式图" class="headerlink" title="位式图"></a>位式图</h4><p>X= n/m</p>
+<p>x: 字</p>
+<p>n: 格数</p>
+<p>m: 位</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2024-04-10T11:44:33.000Z"><a href="/2024/04/10/Linux笔记/">2024-04-10</a></time>
       
       
@@ -423,78 +734,33 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><h6 id="运行-c文件"><a href="#运行-c文件" class="headerlink" title="运行.c文件"></a>运行.c文件</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gcc hello.c</span><br><span class="line">./a.out</span><br><span class="line"></span><br><span class="line">gcc hello.c -o hello.out</span><br><span class="line">./hello.out</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="samba-服务器"><a href="#samba-服务器" class="headerlink" title="samba 服务器"></a>samba 服务器</h6><h6 id="vs-开发Linux-程序"><a href="#vs-开发Linux-程序" class="headerlink" title="vs 开发Linux 程序"></a>vs 开发Linux 程序</h6><ol>
+<li><p>更改更改地址目录</p>
+<p>vim /etc/network/interfaces</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">......</span><br><span class="line"><span class="meta">#</span><span class="bash"> The primary network interface</span></span><br><span class="line">auto eth0</span><br><span class="line">iface eth0 inet static	# static 静态地址 	</span><br><span class="line">address 192.168.1.213 	# 地址 			 ip add 查看</span><br><span class="line">netmask 255.255.255.0 	# 网址掩码			</span><br><span class="line">gateway 192.168.1.1	  	# 网关			 ip route show 查看</span><br></pre></td></tr></table></figure></li>
+<li><p>修改DNS服务器</p>
+<p>vi /etc/resolvconf/resolv.conf.d/base</p>
+<p>注意：windos cmd 命令框 ipconfig -all 查看DNS服务</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 192.168.1.1</span><br></pre></td></tr></table></figure></li>
+<li><p>重启机器</p>
+<p>reboot</p>
+</li>
+<li><p>检测是否环境</p>
+<p>ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></p>
+<p>如果通，说明成功，反之</p>
+</li>
+<li><p>VS 调试</p>
+<p>(1). 检查VS环境是否有 “C++ 的 Linux 开发”，如果没有就选择“工具(T)”=&gt; “获取工具和功能(T)…”，确认“使用          C++ 的Linux 开发”勾选点击右下角的修改进行安装</p>
+<p>(2). 打开空项目（适用于Linux），注意：这里可能有的大佬已经安装了Windows开发所有会有两个，所有注          意争辩</p>
+<p>(3). 在第一次编译或调试你的项目时 vs 会自动让你连接远程环境，在调试-&gt;选项-&gt;跨平</p>
+<pre><code>  台-&gt;连接管理器中进行设置，跟ssh远程登录没区别。
+</code></pre>
+</li>
+</ol>
 
       
     </div>
@@ -1087,92 +1353,6 @@
 
 
 
-  <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2022-05-14T14:12:00.000Z"><a href="/2022/05/14/运算符/">2022-05-14</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2022/05/14/运算符/">运算符“&amp;”，“|”，“~”，“^”，“&lt;&lt;”，“&gt;&gt;”</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <h3 id="位运算与-amp"><a href="#位运算与-amp" class="headerlink" title="位运算与:&amp;"></a>位运算与:&amp;</h3><p>0&amp;0 = 0</p>
-<p>0&amp;1 = 0</p>
-<p>1&amp;0 = 0</p>
-<p>1&amp;1 = 1</p>
-<p>代码演示：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算与:&amp;</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算且：&quot;</span> &lt;&lt; (ch1 &amp; ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0001 1100	= 28</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位运算或"><a href="#位运算或" class="headerlink" title="位运算或:|"></a>位运算或:|</h3><p>0|0 = 0</p>
-<p>0|1 = 1</p>
-<p>1|0 = 1</p>
-<p>1|1 = 1</p>
-<p>代码演示：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算或:|</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算或：&quot;</span> &lt;&lt; (ch1 | ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0111 1101 = 125</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位运算非"><a href="#位运算非" class="headerlink" title="位运算非:~"></a>位运算非:~</h3><p>~0 = 1</p>
-<p>~1 = 0</p>
-<p>代码演示：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch3 = ~<span class="number">61</span>;	<span class="comment">// 61: 0011 1101</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算非：&quot;</span> &lt;&lt; (<span class="keyword">int</span>)(ch3) &lt;&lt; <span class="built_in">endl</span>;		<span class="comment">// 1100 0010 = 194</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位运算异或"><a href="#位运算异或" class="headerlink" title="位运算异或:^"></a>位运算异或:^</h3><p>0^0 = 0</p>
-<p>0^1 = 1</p>
-<p>1^0 = 1</p>
-<p>1^1 = 0</p>
-<p>(相同为0，不同为1)</p>
-<p>代码演示:</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line">	<span class="keyword">unsigned</span> <span class="keyword">char</span> ch2 = <span class="number">92</span>;	<span class="comment">// 0101 1100</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算异或:^</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算异或：&quot;</span> &lt;&lt; (ch1 ^ ch2) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0110 0001 = 97</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位运算左移-lt-lt"><a href="#位运算左移-lt-lt" class="headerlink" title="位运算左移:&lt;&lt;"></a>位运算左移:&lt;&lt;</h3><p>右边的位用 0 来填充, 移动超出左边边界的位则直接抛弃。 </p>
-<p>向左移动 n 个位置，就等同于乘以 2 的 n 次，只适用于: int/short/long/char 等定点数类型(float/double 浮点数类型不能使用)</p>
-<p>代买演示：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算左移:&lt;&lt;</span></span><br><span class="line">    <span class="comment">// 左移两位</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算左移：&quot;</span> &lt;&lt; (ch1 &lt;&lt; <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 1111 0100 = 244</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="位运算右移-gt-gt"><a href="#位运算右移-gt-gt" class="headerlink" title="位运算右移:&gt;&gt;"></a>位运算右移:&gt;&gt;</h3><p>如果右操作数是无符号类型，则左边多出来的位用 0 来填充。 </p>
-<p>如果右操作数是有符号类型，则左边多出来的位用 符号位(最高位) 来填充。</p>
-<p> 向右移动 n 个位置，就等同于除以 2 的 n 次方 只适用于: int/short/long/char 等定点数类型(float/double 浮点数类型不能使用)</p>
-<p>代码演示：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> ch1 = <span class="number">61</span>;	<span class="comment">// 0011 1101</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">// 位运算右移:&lt;&lt;</span></span><br><span class="line">    <span class="comment">// 右移两位</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;位运算左移：&quot;</span> &lt;&lt; (ch1 &gt;&gt; <span class="number">2</span>) &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 0000 1111 = 14</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="综合练习："><a href="#综合练习：" class="headerlink" title="综合练习："></a>综合练习：</h3><p>把一个整数数最低的四位数变为0110</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">   <span class="keyword">unsigned</span> <span class="keyword">char</span> ch4 = <span class="number">125</span>;		</span><br><span class="line">	<span class="comment">// 第一步：后四位变为:0000 </span></span><br><span class="line">	ch4 = ch4 &amp; (~<span class="number">15</span>);	<span class="comment">//	15:1111 ~15: 1111 0000</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第一步：后四位为0000：&quot;</span> &lt;&lt; (<span class="keyword">int</span>)ch4 &lt;&lt; <span class="built_in">endl</span>;	<span class="comment">// 112: 0111 0000</span></span><br><span class="line">	<span class="comment">// 第二步: 后四位为：0110</span></span><br><span class="line">	ch4 = ch4 | <span class="number">6</span>;		<span class="comment">// 0110: 6</span></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;第二步: 后四位为0110:&quot;</span> &lt;&lt; (<span class="keyword">int</span>)ch4 &lt;&lt; <span class="built_in">endl</span>;		<span class="comment">// 118:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-      
-    </div>
-    
-    <footer>
-        <div class="alignright">
-          
-          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
-        </div>
-        
-        
-        <!-- partial('post/share') -->
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
-
 
 <nav id="pagination">
   
@@ -1198,6 +1378,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/2024/04/12/软件设计师/">软件设计师</a>
+      </li>
+    
+      <li>
         <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
       </li>
     
@@ -1211,10 +1395,6 @@
     
       <li>
         <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
-      </li>
-    
-      <li>
-        <a href="/2022/07/28/类/">类</a>
       </li>
     
   </ul>

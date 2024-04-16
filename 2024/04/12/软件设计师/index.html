@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8" />
+  
+  <title>软件设计师 | 慕瑶的Hexo</title>
+  <meta name="author" content="MuYao" />
+
+  
+  <meta name="description" content="第一章 操作系统操作系统概念操作系统的功能
+管理系统的硬件、软件、数据资源
+
+管理程序运行
+
+人机之间的接口
+
+应用软件与硬件之间的接口
+
+进程、存储、文件、作业、设备管理
+↓应用程序
+↓语言处理程序
+  操作系统
+↑计算机硬件
+
+
+操作系统的分类
+
+
+分类
+特点
+
+
+
+批处理操作系统
+单道批：一次" />
+  
+
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+  <meta property="og:title" content="软件设计师" />
+  <meta property="og:site_name" content="慕瑶的Hexo" />
+
+  
+  
+
+  
+    <meta property="og:image" content="" />
+  
+
+  
+  <link href="/css/images/favicon.ico" rel="icon" />
+  
+
+  <link rel="alternate" href="/atom.xml" title="慕瑶的Hexo" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+
+  <!-- baidu webmaster push -->
+  <script src='//push.zhanzhang.baidu.com/push.js'></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">慕瑶的Hexo</a></h1>
+  <h2><a href="/">慕瑶的hexo</a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2024-04-12T12:47:12.000Z"><a href="/2024/04/12/软件设计师/">2024-04-12</a></time>
+      
+      
+  
+    <h1 class="title">软件设计师</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <h1 id="第一章-操作系统"><a href="#第一章-操作系统" class="headerlink" title="第一章 操作系统"></a>第一章 操作系统</h1><h2 id="操作系统概念"><a href="#操作系统概念" class="headerlink" title="操作系统概念"></a>操作系统概念</h2><h4 id="操作系统的功能"><a href="#操作系统的功能" class="headerlink" title="操作系统的功能"></a>操作系统的功能</h4><ul>
+<li><p>管理系统的硬件、软件、数据资源</p>
+</li>
+<li><p>管理程序运行</p>
+</li>
+<li><p>人机之间的接口</p>
+</li>
+<li><p>应用软件与硬件之间的接口</p>
+</li>
+<li><p>进程、存储、文件、作业、设备管理</p>
+<p>↓应用程序</p>
+<p>↓语言处理程序</p>
+<p>  操作系统</p>
+<p>↑计算机硬件</p>
+</li>
+</ul>
+<h4 id="操作系统的分类"><a href="#操作系统的分类" class="headerlink" title="操作系统的分类"></a>操作系统的分类</h4><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>批处理操作系统</td>
+<td>单道批：一次一个作业入内存，作业由程序、数据、作业说明书等组成<br />多道批：一次多个作业入内存，特点：多道、宏观上并行，微观上串行</td>
+</tr>
+<tr>
+<td>分时系统</td>
+<td>采用时间片轮转的方式为多个用户提供服务，每个用户感觉独占系统<br />特点：多路性、独立性、交互性和及时性</td>
+</tr>
+<tr>
+<td>实时操作系统</td>
+<td>实时控制系统和实时信息系统<br />交互能力要求不高，可靠性要求高（规定时间内响应并处理）</td>
+</tr>
+<tr>
+<td>网络操作系统</td>
+<td>方便有效共享网络资源。提供服务软件和有关协议的集合<br />主要的网络操作系统由：Unix、Linux、Windows Server</td>
+</tr>
+<tr>
+<td>分布式操作系统</td>
+<td>任意两台计算机可以通过通信交换信息<br />是网络操作系统的更高级形式，具有透明性、可靠性和高性能等特性</td>
+</tr>
+<tr>
+<td>危机操作系统</td>
+<td>Windows: Microsoft开发的图形用户界面、多任务、多线程操作系统<br />Linux: 免费使用和自由传播的类Unix操作系统，多用户、多任务、多线程和多CPU的操作系统</td>
+</tr>
+<tr>
+<td>嵌入式操作系统</td>
+<td>运行再智能芯片环境中<br />特点：微型化、<u>可定制</u>（针对硬件变化配置）、实时性、可靠性、<u>易移植性</u>（HAL和BSP支持）</td>
+</tr>
+</tbody></table>
+<h2 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h2><p>进程是程序再一个数据集合上运行的过程，它是系统进行资源分配和调度的一个独立单位，它由程序块、进程控制块（PBC）和数据块三部分组成。</p>
+<h4 id="进程与线程的概念"><a href="#进程与线程的概念" class="headerlink" title="进程与线程的概念"></a>进程与线程的概念</h4><ul>
+<li>进程与程序的区别：进程是程序的一次执行过程，没有程序就没有进程</li>
+<li>程序是一个静态的概念，而进程是一个动态的概念，它由创建而生产，完成任务后因撤销而消亡</li>
+<li>进程是系统进行资源分配和调度的独立单位，而程序不是</li>
+</ul>
+<p>进程的两个基本属性：可拥有资源的独立单位；可独立调度和分配资源的基本单位</p>
+<table>
+<thead>
+<tr>
+<th>拥有资源的独立单位</th>
+<th>独立调度和分配资源的基本单位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>线程、程序计数器、寄存器栈</td>
+<td>内存地址空间、代码、数据、文件等</td>
+</tr>
+</tbody></table>
+<h4 id="进程的状态"><a href="#进程的状态" class="headerlink" title="进程的状态"></a>进程的状态</h4><p><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-2-1.jpg" alt="1-2-2-1"></p>
+<table>
+<thead>
+<tr>
+<th>状态</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>运行</td>
+<td>当一个进程在CPU上运行时。（单处理机处于运行状态的进程只有一个）</td>
+</tr>
+<tr>
+<td>就绪</td>
+<td>一个进程获得了出CPU外的一切所需资源，一旦得到处理机即可运行</td>
+</tr>
+<tr>
+<td>阻塞(等待)</td>
+<td>一个进程正在等待某一事件发生(例如请求I/O、等待I/O完成等)而暂时停止运行，此时即使把CPU分配给进程也无法运行，顾称进程处于阻塞状态</td>
+</tr>
+</tbody></table>
+<h4 id="信号量与PV操作"><a href="#信号量与PV操作" class="headerlink" title="信号量与PV操作"></a>信号量与PV操作</h4><p>P 要资源         V 释放资源 </p>
+<p>临界资源： 诸进程间需要互斥方式对其进行共享的资源。</p>
+<p>信号量： 是一种特殊的变量（可以表示资源数量；为负数时还可以表示排队的进程数）</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>互斥模型</td>
+<td>互斥信号量S的初始值一般为非0<br />访问权是一类特殊的互斥资源，同一时刻仅允许一个人用，则信号量初始值为1<br />先P后V</td>
+</tr>
+<tr>
+<td>同步模型</td>
+<td>同步信号量S的初始值一般为0<br />先V后P</td>
+</tr>
+</tbody></table>
+<h4 id="前驱图与PV操作"><a href="#前驱图与PV操作" class="headerlink" title="前驱图与PV操作"></a>前驱图与PV操作</h4><ul>
+<li><p>并发图中某活动有后继就有V操作释放资源，有前驱就有P操作消耗资源</p>
+</li>
+<li><p>实现并发的信号量初始值一般为0、有几个箭头就有几个信号量</p>
+</li>
+</ul>
+<h4 id="死锁问题"><a href="#死锁问题" class="headerlink" title="死锁问题"></a>死锁问题</h4><p>所谓死锁，是指两个以上的进程互相都要求对方已经占有的资源导致无法继续运行下去的现象。</p>
+<table>
+<thead>
+<tr>
+<th>条件</th>
+<th>死锁处理</th>
+<th>详情</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1、互斥</td>
+<td>死锁的预防</td>
+<td>(打破四大条件)</td>
+</tr>
+<tr>
+<td>2、保持和等待</td>
+<td>死锁的避免</td>
+<td></td>
+</tr>
+<tr>
+<td>3、不剥夺</td>
+<td>死锁的检测与接触</td>
+<td></td>
+</tr>
+<tr>
+<td>4、环路等待</td>
+<td>鸵鸟策略（不予理睬）</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>系统不可能发生死锁的最小资源数： (w-1)*m+1 &lt;= n            </p>
+<p>w: 所需要的资源</p>
+<p>m: 进程数<br>n：总资源</p>
+<h4 id="进程资源图"><a href="#进程资源图" class="headerlink" title="进程资源图"></a>进程资源图</h4><table>
+<thead>
+<tr>
+<th>图形</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-1.png" alt="1-2-6-1"></td>
+<td>资源R1已经分配给进程P，1个箭头即分配了1个R1</td>
+</tr>
+<tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-2.png" alt="1-2-6-2"></td>
+<td>进程P申请1个资源R1，一个箭头即申请了1个R1，等待R1分配</td>
+</tr>
+<tr>
+<td><img src=".%5C%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88%5C1-2-6-3.png" alt="1-2-6-3"></td>
+<td>进程P已经分配了1个资源R1，同时还在申请一个资源R1<br /><u>不是先申请后分配</u></td>
+</tr>
+</tbody></table>
+<h2 id="存储管理器"><a href="#存储管理器" class="headerlink" title="存储管理器"></a>存储管理器</h2><h4 id="段页式存储"><a href="#段页式存储" class="headerlink" title="段页式存储"></a>段页式存储</h4><p>高级程序语言使用逻辑地址</p>
+<p>运行状态，内存中使用物理地址</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>页式存储：将程序与内存均划分同样的大小块，以页为单位将程序调入内存</td>
+<td>利用率高，碎片小，分配及管理简单</td>
+<td>增加了系统开销；可能产生抖动现象</td>
+</tr>
+<tr>
+<td>段式存储：按用户作业中的自然段来划分逻辑空间，然后调入内存，段的长度可以不一样</td>
+<td>多道程序共享内存，各段程序修改互不影响</td>
+<td>内存利用率低，内存碎片浪费大</td>
+</tr>
+<tr>
+<td>段页式存储：段式与页式的综合体。先分段，再分页。<br />一个程序有若干段，每个段中可以有若干页，每个页的大小相同，但每个段的大小不同</td>
+<td>空间浪费小、存储共享容易、存储保护容易、能动态连接</td>
+<td>由于管理软件的增加，复杂性和开销页随之增加。需要的硬件以及占用的内容页有所增家，使得执行速度大大下降</td>
+</tr>
+</tbody></table>
+<p>考点：</p>
+<ul>
+<li><p>页式存储：</p>
+<p>逻辑地址=页号+页内地址</p>
+<p>物理地址=页帧号+页内地址</p>
+</li>
+<li><p>段式存储</p>
+<p>逻辑段地址:判断偏移量是否合法（短号，偏移量）</p>
+</li>
+<li><p>段页式存储</p>
+<p>根据地址结构计算相关数据</p>
+</li>
+</ul>
+<h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><p>存取时间 = 寻道时间 + 等待时间</p>
+<p>读取磁盘数据的时间应包括以下三部分</p>
+<ul>
+<li>找磁道的时间</li>
+<li>找扇区的时间</li>
+<li>传输时间</li>
+</ul>
+<p>移臂调度算法：先找磁道，再找扇区。</p>
+<p>目标：使用磁盘平均寻道时间最少</p>
+<ul>
+<li><p>先来先服务(FCFS)</p>
+</li>
+<li><p>最短寻道时间优先(SSTF)</p>
+</li>
+<li><p>扫描算法(SCAN)</p>
+</li>
+<li><p>循环扫描(CSCAN)算法</p>
+</li>
+</ul>
+<h2 id="设备管理"><a href="#设备管理" class="headerlink" title="设备管理"></a>设备管理</h2><table>
+<thead>
+<tr>
+<th>I/O请求</th>
+<th>层次</th>
+<th>I/O应答</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>↓</td>
+<td>用户进程</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>设备无关程序（os）</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>设备驱动程序</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>中断处理程序</td>
+<td>↑</td>
+</tr>
+<tr>
+<td>↓</td>
+<td>硬件</td>
+<td>↑</td>
+</tr>
+</tbody></table>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><h4 id="文件相关概念"><a href="#文件相关概念" class="headerlink" title="文件相关概念"></a>文件相关概念</h4><p>文件：具有符号名的、在逻辑上具有完整意义的一组相关信息项的集合</p>
+<p>逻辑结构：有结构的记录式文件、无结构的流式文件</p>
+<p>物理结构：连续结构、链接结构、索引结构、多个物理块的索引表</p>
+<h4 id="树形目录结构"><a href="#树形目录结构" class="headerlink" title="树形目录结构"></a>树形目录结构</h4><p>绝对路径：从盘符开始的路径</p>
+<p>相对路径：是从当前目录开始的路径</p>
+<p>全文件名：绝对路径+文件名</p>
+<h4 id="索引文件结构"><a href="#索引文件结构" class="headerlink" title="索引文件结构"></a>索引文件结构</h4><p>X = n*</p>
+<p>X：地址数<br>n：索引块<br>*： *级索引</p>
+<h4 id="位式图"><a href="#位式图" class="headerlink" title="位式图"></a>位式图</h4><p>X= n/m</p>
+<p>x: 字</p>
+<p>n: 格数</p>
+<p>m: 位</p>
+
+      
+    </div>
+    
+    <footer>
+        <div class="alignright">
+          
+          <a href='javascript:void(0)' class="share-link bdsharebuttonbox" data-cmd="more">分享</a>
+        </div>
+        
+        
+        <!-- partial('post/share') -->
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:example.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">最新文章</h3>
+  <ul class="entry">
+    
+      <li>
+        <a href="/2024/04/12/软件设计师/">软件设计师</a>
+      </li>
+    
+      <li>
+        <a href="/2024/04/10/Linux笔记/">Linux笔记</a>
+      </li>
+    
+      <li>
+        <a href="/2024/03/31/QT笔记/"></a>
+      </li>
+    
+      <li>
+        <a href="/2024/03/03/C-容器/">C++容器</a>
+      </li>
+    
+      <li>
+        <a href="/2024/02/27/c-c-在Visual-Studio中玩MySQL/">c/c++在Visual Studio中玩MySQL</a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+  
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  <p>
+  
+  &copy; 2024 MuYao
+  
+  All rights reserved.</p>
+  <p>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></p>
+</div>
+<div class="clearfix"></div>
+
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"1","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script></footer>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+<div id='bg'></div>
+</body>
+</html>
