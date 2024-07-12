@@ -374,6 +374,147 @@
 <p>x: 字</p>
 <p>n: 格数</p>
 <p>m: 位</p>
+<h1 id="第二章-算法"><a href="#第二章-算法" class="headerlink" title="第二章 算法"></a>第二章 算法</h1><h4 id="算法的效率"><a href="#算法的效率" class="headerlink" title="算法的效率"></a>算法的效率</h4><p>时间复杂度：是指程序运行从开始到结束所需要的时间。</p>
+<p>空间复杂度：是指对一个算法在运行过程中临时存储空间大小的度量。</p>
+<p>常见的对算法执行所需时间的度量：</p>
+<p>O(1) &lt; O(log₂n) &lt; O(n) &lt; O(nlog₂n) &lt; O(n²) &lt; O(n³) &lt; O(2ⁿ) &lt; n!</p>
+<p>单个语句O(1)&lt;二分查找O(log₂n)&lt;单层循环&lt;单层循环O(n)&lt;双层循环O(n²)&lt;堆排序O(nlog₂n) &lt;判断是否包含指定序列O(2ⁿ)</p>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>考点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>顺序查找</td>
+<td>顺序查找的平均查找长度为(n+1)/2</td>
+</tr>
+<tr>
+<td>二分查找</td>
+<td>折半查找在查找成功时关键字的比较次数最多为log₂n+1<br />折半查找的时间复杂度为O(log₂n)次<br />折半查找的前提：有序、顺序存储<br /></td>
+</tr>
+<tr>
+<td>哈希查找(散列表查找)</td>
+<td>哈希冲突</td>
+</tr>
+</tbody></table>
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">排序方法</th>
+<th align="left">平均时间复杂度</th>
+<th align="left">特使情况时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">插入排序</td>
+<td align="left">直接插入</td>
+<td align="left">O(n²)</td>
+<td align="left">基本有序最优O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td align="left">插入排序</td>
+<td align="left">Shell插入</td>
+<td align="left">O(n^1.3)</td>
+<td align="left">基本有序最优O(n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td align="left">选择排序</td>
+<td align="left">直接选择</td>
+<td align="left">O(n²)</td>
+<td align="left">基本有序最优O(n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td align="left">选择排序</td>
+<td align="left">堆排序</td>
+<td align="left">O(nlog₂n)</td>
+<td align="left">基本有序最优O(n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td align="left">交换排序</td>
+<td align="left">冒泡排序</td>
+<td align="left">O(n²)</td>
+<td align="left">基本有序最优O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td align="left">交换排序</td>
+<td align="left">快速排序</td>
+<td align="left">O(nlog₂n)</td>
+<td align="left">基本有序最差O(n²)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td align="left">归并排序</td>
+<td align="left">归并排序</td>
+<td align="left">O(nlog₂n)</td>
+<td align="left">基本有序最差O(n²)</td>
+<td>O(n)</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td align="left">基数排序</td>
+<td align="left">基数排序</td>
+<td align="left">O(d+(b+rd))</td>
+<td align="left">基本有序最差O(n²)</td>
+<td>O(rd)</td>
+<td>稳定</td>
+</tr>
+</tbody></table>
+<ul>
+<li>若待排序列的计数目n较小，可采用直接插入排序和简单选择排序。</li>
+<li>若待排序记录按关键字基本有序，宜采用直接插入排序或冒泡排序。</li>
+<li>当n很大且关键字位数较少时，采用基数排序较好。</li>
+<li>如n很大，则采用时间复杂度为O(nlog₂n)的排序方法。<ol>
+<li>快速排序目前被认为是内部排序最好的方法，当排序的关键字为随机分布时，快速排序的平均运行时间最短。</li>
+<li>堆排序只需要一个辅助空间，并且不会出现在快速排序中可能出现的最快情况。</li>
+<li>快速排序和堆排序都是不稳定的排序方法，若要求排序稳定，可选择归并排序。</li>
+</ol>
+</li>
+</ul>
+<h4 id="算法策略"><a href="#算法策略" class="headerlink" title="算法策略"></a>算法策略</h4><table>
+<thead>
+<tr>
+<th>算法策略</th>
+<th>特征</th>
+<th>经典问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>分治法</td>
+<td>把一个问题拆分为多个小规模的相同子问题，一般可用递归解决</td>
+<td>斐波那契数、归并排序、二分搜索、最大数乘法、汉诺塔</td>
+</tr>
+<tr>
+<td>贪心法</td>
+<td>局部最优，但整体不见得最优。每步有明确的、既定的策略。</td>
+<td>背包问题、找零问题、最小生成树</td>
+</tr>
+<tr>
+<td>动态规划</td>
+<td>使用数组存储子问题结果，利用查询子问题结果构造最终问题结果。</td>
+<td>斐波那契数列、矩阵乘法、背包问题</td>
+</tr>
+<tr>
+<td>回溯发</td>
+<td>系统地搜索一个问题的所有解或任一解</td>
+<td>N皇后问题、迷宫、背包问题</td>
+</tr>
+</tbody></table>
 
       
     </div>
